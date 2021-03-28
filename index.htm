@@ -6,7 +6,7 @@
         <!--<link rel="stylesheet" type="text/css" href="files/style.css">-->
 
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <script src="script.js" defer></script>
+        <script src="countryclick.js" defer></script>
     </head>
     <body>
         <!--<object type="image/svg+xml" width=400 data="files/europe.svg">-->
@@ -6346,15 +6346,6 @@
         <footer>
             <input type="range" min="0" max="1000" value="1000" id="timeline">
         </footer>
-        <script>
-
-
-            document.getElementById("timeline").oninput = function() {
-                paths = document.getElementById("Russia").querySelectorAll("path");
-                for (i = 0; i < paths.length; i++) {
-                    paths[i].setAttribute("fill", mapToColor(this.value/1000));
-                }
-            }
-        </script>
+        <script src="getElementById.js" defer></script>
     </body>
 </html>
