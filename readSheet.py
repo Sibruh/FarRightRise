@@ -1,5 +1,6 @@
 import csv
 import datetime
+import itertools
 
 # Functie, Convertert notatie als "GR1: 0,3% | GR2: 5,6%" naar [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -35,3 +36,9 @@ for j in range(1,len(sheet_elections[0])):
     print(x[0])
     for y in x[1]:
         print(y)'''
+
+# Berekent minimale en maximale datum
+allDatesList = list(map(lambda x: x[0], list(itertools.chain.from_iterable(filter(lambda x: not len(x) == 0, map(lambda x: x[1], data_elections))))))
+allDatesList.sort()
+minDateRange = allDatesList[0]
+maxDateRange = allDatesList[-1]
