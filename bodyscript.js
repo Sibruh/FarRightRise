@@ -42,7 +42,10 @@ document.getElementById("timeline").oninput = function() {
 		}
 	}
 	else {
-		document.getElementById("Russia").setAttribute("fill", "#c0c0c0");
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#c0c0c0");
+		}
 	}
 	if (this.value/1000 >= 0.43153143912196124 && this.value/1000 < 0.505128731151913) {
 		document.getElementById("North_Macedonia").setAttribute("fill", "#fe8a59");
@@ -507,7 +510,10 @@ document.getElementById("timeline").oninput = function() {
 		}
 	}
 	else {
-		document.getElementById("Danish_Kingdom").setAttribute("fill", "#c0c0c0");
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#c0c0c0");
+		}
 	}
 	if (this.value/1000 >= 0.9729202995178993 && this.value/1000 < 0.9973330598010053) {
 		document.getElementById("Portugal").setAttribute("fill", "#f4eadb");
@@ -879,7 +885,10 @@ document.getElementById("timeline").oninput = function() {
 		}
 	}
 	else {
-		document.getElementById("United_Kingdom").setAttribute("fill", "#c0c0c0");
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#c0c0c0");
+		}
 	}
 	if (this.value/1000 >= 0.6997127910554929 && this.value/1000 < 0.8820904708175198) {
 		document.getElementById("Moldova").setAttribute("fill", "#fef3c8");

@@ -197,7 +197,10 @@ for subset in colormap:
             content += ("\t\t}\n")
             content += ("\t}\n")
         content += ("\telse {\n")
-        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
+        content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
+        content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t}\n")
         content += ("\t}\n")
     else:
         for i in range(0, len(subset[1])):
