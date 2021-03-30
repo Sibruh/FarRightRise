@@ -3,6 +3,8 @@ import datetime
 import itertools
 import matplotlib
 import matplotlib.cm as cm
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -68,7 +70,7 @@ data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin
 minimumCountryScore = min(map(lambda x: (min(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
 maximumCountryScore = max(map(lambda x: (max(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
 normalizedColorspace = matplotlib.colors.Normalize(vmin=minimumCountryScore, vmax=maximumCountryScore, clip=True)
-colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=cm.OrRd)
+colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=cm.OrRd) # OrRd or afmhot_r
 data_colored = list(map(lambda y: (y[0], list(map(lambda x: (x[0], x[1], x[2], x[3], matplotlib.colors.to_hex(colorMapper.to_rgba(x[3]))), y[1]))), data_combined))
 
 # Test print
@@ -88,6 +90,49 @@ data_keyframed.sort(key=lambda x: x[5])
 '''for x in data_keyframed:
     print('{:<21} {:<16} {:<10} {:<44} {:<20}'.format(x[0], x[1], x[2], "<<party and date are hidden for clarity>>", x[5]))
 print("Number of keyframes: " + str(len(data_keyframed)))'''
+
+# Interpolating keyframes for use in plot
+keyframeTimestamps = [data_keyframed[i][0] for i in range(0,len(data_keyframed))]
+keyframeTimestamps.sort()
+
+keyframeMatrix = dict()
+
+# Function, returns the nearest values in the array that it lies directly in between. Returns only one value if it lies directly on a value.
+def findNearest(array, value):
+    a = list(map(lambda x: (abs(value-x[1]), x[0]), enumerate(array)))
+    a.sort()
+    if a[0][0] == 0:
+        return [a[0][1]]
+    else:
+        b = list(map(lambda x: x[1], a[:2]))
+        b.sort()
+        return b
+
+def interpolate(array, value):
+    a = findNearest(array, value)
+    if len(a) == 1:
+        return value
+    else:
+        left = (value-a[0])/(a[1]-a[0])
+        right = (a[1]-value)/(a[1]-a[0])
+        return value
+
+
+'''for country in data_colored:
+    if country[1]:
+        newKeys = []
+        for timestamp in keyframeTimestamps:
+            for i in range(0, len(country[1])):
+                if timestamp >= country[1][i][0]:
+                    newKeys.append(country[1][i][3])
+                    break
+        keyframeMatrix.update({country[0] : newKeys})'''
+
+#print(keyframeMatrix)
+
+'''fig, ax = plt.subplots()
+ax.stackplot(keyframeTimestamps, keyframeMatrix.values(), labels=keyframeMatrix.keys())
+plt.show()'''
 
 # Old test case, only Hungary
 '''# JavaScript code generation test, only Hungary
@@ -130,17 +175,6 @@ print("\n========== code ==========")
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
-'''print("document.getElementById(\"timeline\").oninput = function() {")
-for subset in colormap:
-    for i in range(0, len(subset[1])):
-        print("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {")
-        print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");")
-        print("\t}")
-    print("\telse {")
-    print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");")
-    print("\t}")
-print("}")'''
-
 content = ("document.getElementById(\"timeline\").oninput = function() {\n")
 for subset in colormap:
     for i in range(0, len(subset[1])):
@@ -152,8 +186,10 @@ for subset in colormap:
     content += ("\t}\n")
 content += ("}\n")
 
+# Write to JavaScript file
 f = open("bodyscript.js", "w")
 f.write(content)
 f.close()
 
+# Test print
 print(content)
