@@ -77,14 +77,37 @@ data_colored = list(map(lambda y: (y[0], list(map(lambda x: (x[0], x[1], x[2], x
     for y in x[1]:
         print(y)'''
 
-# Generate keyframes, replace white spaces in country names with underscores
-data_keyframed = list(itertools.chain.from_iterable(map(lambda y: (list(map(lambda x: (x[0], y[0].replace(" ", "_"), x[4], x[2], x[1], x[3]), y[1]))), data_colored)))
+# Generate keyframe list for debugging
+data_keyframed = list(itertools.chain.from_iterable(map(lambda y: (list(map(lambda x: (x[0], y[0], x[4], x[2], x[1], x[3]), y[1]))), data_colored)))
 data_keyframed.sort()
 
 # Test case: sort on score, ascending
 data_keyframed.sort(key=lambda x: x[5])
 
 # Test print
-for x in data_keyframed:
+'''for x in data_keyframed:
     print('{:<21} {:<16} {:<10} {:<44} {:<20}'.format(x[0], x[1], x[2], "<<party and date are hidden for clarity>>", x[5]))
-print("Number of keyframes: " + str(len(data_keyframed)))
+print("Number of keyframes: " + str(len(data_keyframed)))'''
+
+# JavaScript code generation test, only Hungary
+subset = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[0] == "Hungary", data_colored)))[0]
+
+print("\n========== data ==========")
+
+print(subset[0])
+for y in subset[1]:
+    print(y)
+
+print("\n========== code ==========")
+
+# TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
+# TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
+print("document.getElementById(\"timeline\").oninput = function() {")
+for i in range(0, len(subset[1])):
+    print("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {")
+    print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");")
+    print("\t}")
+print("\telse {")
+print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");")
+print("\t}")
+print("}")
