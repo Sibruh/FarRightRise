@@ -10,10 +10,3 @@ function countryClick(country) {
         document.getElementById(country).setAttribute("opacity", "0.3");
     }*/
 }
-
-function mapToColor(value) {
-    r = Math.min(value*3);
-    g = Math.min(value*3-1);
-    b = Math.min(value*3-2);
-    return ["rgb(",Math.round(255*r),",",Math.round(255*g),",",Math.round(255*b),")"].join("")
-}
