@@ -1,8 +1,10 @@
 import csv
 import datetime
 import itertools
+import matplotlib
+import matplotlib.cm as cm
 
-# Functie, Convertert notatie als "GR1: 0,3% | GR2: 5,6%" naar [("GR1",0.3), ("GR2", 5.6)]
+# Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
     parties = []
     bars = [-2] + [i for i, bar in enumerate(string) if bar == "|"] + [0]
@@ -12,15 +14,15 @@ def parseElectionResult(string):
         parties.append((party[:colonIndex], float(party[colonIndex+2:])))
     return parties
 
-# Leest alle .csv bestanden in
+# Parses alle .csv files
 with open("Countries data - Elections.csv") as file_elections:
     sheet_elections = list(csv.reader(file_elections))
 with open("Countries data - Parties.csv") as file_parties:
     sheet_parties = list(csv.reader(file_parties))
-with open("Countries data - Countries.csv") as file_countries:
-    sheet_countries = list(csv.reader(file_countries))
+'''with open("Countries data - Countries.csv") as file_countries:
+    sheet_countries = list(csv.reader(file_countries))'''
 
-# Leest en converteert alle election data
+# Reads and converts all election data
 data_elections = []
 for j in range(1,len(sheet_elections[0])):
     currentCountryElectionsList = []
@@ -31,14 +33,58 @@ for j in range(1,len(sheet_elections[0])):
             currentCountryElectionsList.append((dateObj, parseElectionResult(currentElectionPartiesList)))
     data_elections.append((sheet_elections[0][j], currentCountryElectionsList))
 
-#test print
+# Test print
 '''for x in data_elections:
     print(x[0])
     for y in x[1]:
         print(y)'''
 
-# Berekent minimale en maximale datum
+# Calculates minimum and maximum dates
 allDatesList = list(map(lambda x: x[0], list(itertools.chain.from_iterable(filter(lambda x: not len(x) == 0, map(lambda x: x[1], data_elections))))))
 allDatesList.sort()
-minDateRange = allDatesList[0]
-maxDateRange = allDatesList[-1]
+dateRangeMin = allDatesList[0]
+dateRangeMax = allDatesList[-1]
+dateRangeDays = (dateRangeMax-dateRangeMin).days
+
+# Reads and converts all party data
+data_parties = dict()
+for i in range(1,len(sheet_parties)):
+    data_parties.update({sheet_parties[i][0] : (sheet_parties[i][1], sheet_parties[i][2], int(sheet_parties[i][3]))})
+
+# Test print
+#print(data_parties)
+
+# Combine election and party data, add timeline position, add corrected country score (corrected country score = sum of seats*partyScore for each party)
+# Note: the country score is set to be 0.1 or higher
+data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin).days/dateRangeDays, x[0], list(map(lambda z: (z[0], z[1], z[1]*data_parties.get(z[0])[2]), x[1])) if x[1] else x[1], sum(list(map(lambda z: (max(0.1,z[1]*data_parties.get(z[0])[2])), x[1])) if x[1] else x[1])), y[1]))), data_elections))
+
+# Test print
+'''for x in data_combined:
+    print(x[0])
+    for y in x[1]:
+        print(y)'''
+
+# Generate normalized colormap and map corrected country scores to color-hex
+minimumCountryScore = min(map(lambda x: (min(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
+maximumCountryScore = max(map(lambda x: (max(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
+normalizedColorspace = matplotlib.colors.LogNorm(vmin=minimumCountryScore, vmax=maximumCountryScore, clip=True)
+colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=cm.OrRd)
+data_colored = list(map(lambda y: (y[0], list(map(lambda x: (x[0], x[1], x[2], x[3], matplotlib.colors.to_hex(colorMapper.to_rgba(x[3]))), y[1]))), data_combined))
+
+# Test print
+'''for x in data_colored:
+    print(x[0])
+    for y in x[1]:
+        print(y)'''
+
+# Generate keyframes, replace white spaces in country names with underscores
+data_keyframed = list(itertools.chain.from_iterable(map(lambda y: (list(map(lambda x: (x[0], y[0].replace(" ", "_"), x[4], x[2], x[1], x[3]), y[1]))), data_colored)))
+data_keyframed.sort()
+
+# Test case: sort on score, ascending
+data_keyframed.sort(key=lambda x: x[5])
+
+# Test print
+for x in data_keyframed:
+    print('{:<21} {:<16} {:<10} {:<44} {:<20}'.format(x[0], x[1], x[2], "<<party and date are hidden for clarity>>", x[5]))
+print("Number of keyframes: " + str(len(data_keyframed)))
