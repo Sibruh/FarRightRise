@@ -42,9 +42,12 @@ for j in range(1,len(sheet_elections[0])):
         print(y)'''
 
 # Calculates minimum and maximum dates
+# minimum date = first election of Switzerland
 allDatesList = list(map(lambda x: x[0], list(itertools.chain.from_iterable(filter(lambda x: not len(x) == 0, map(lambda x: x[1], data_elections))))))
 allDatesList.sort()
-dateRangeMin = allDatesList[0]
+allDatesList_switzerland = list(map(lambda x: x[0], list(itertools.chain.from_iterable(filter(lambda x: not len(x) == 0, map(lambda x: x[1], list(filter(lambda x: x[0] == "Switzerland", data_elections))))))))
+allDatesList_switzerland.sort()
+dateRangeMin = allDatesList_switzerland[0]
 dateRangeMax = allDatesList[-1]
 dateRangeDays = (dateRangeMax-dateRangeMin).days
 
