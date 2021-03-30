@@ -67,7 +67,7 @@ data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin
 # Generate normalized colormap and map corrected country scores to color-hex
 minimumCountryScore = min(map(lambda x: (min(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
 maximumCountryScore = max(map(lambda x: (max(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
-normalizedColorspace = matplotlib.colors.LogNorm(vmin=minimumCountryScore, vmax=maximumCountryScore, clip=True)
+normalizedColorspace = matplotlib.colors.Normalize(vmin=minimumCountryScore, vmax=maximumCountryScore, clip=True)
 colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=cm.OrRd)
 data_colored = list(map(lambda y: (y[0], list(map(lambda x: (x[0], x[1], x[2], x[3], matplotlib.colors.to_hex(colorMapper.to_rgba(x[3]))), y[1]))), data_combined))
 
