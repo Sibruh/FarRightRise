@@ -62,7 +62,7 @@ for i in range(1,len(sheet_parties)):
 
 def colormapScalingFunction(value):
     print(value)
-    return ((value+0)**(1/3)).real
+    return ((value)**(1/(3))).real
 
 # Combine election and party data, add timeline position, add corrected country score (corrected country score = sum of seats*partyScore for each party)
 # Note: the country score is set to be 0.1 or higher
