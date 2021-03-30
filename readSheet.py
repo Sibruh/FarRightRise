@@ -3,8 +3,10 @@ import datetime
 import itertools
 import matplotlib
 import matplotlib.cm as cm
+from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 
 # Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -69,11 +71,19 @@ data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin
     for y in x[1]:
         print(y)'''
 
+# Generates color palette from file
+colorPaletteImgSource = Image.open("colorPalette.png")
+colorPaletteImgPixels = []
+for pixel in colorPaletteImgSource.getdata():
+    colorPaletteImgPixels.append(pixel)
+colorPaletteImgRange = list(map(lambda x: [x[0]/256, x[1]/256, x[2]/256, 1], colorPaletteImgPixels[:colorPaletteImgSource.size[0]]))
+customColormap = ListedColormap(np.array(colorPaletteImgRange))
+
 # Generate normalized colormap and map corrected country scores to color-hex
 minimumCountryScore = min(map(lambda x: (min(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
 maximumCountryScore = max(map(lambda x: (max(map(lambda y: y[3], x[1]))), filter(lambda x: x[1], data_combined)))
 normalizedColorspace = matplotlib.colors.Normalize(vmin=minimumCountryScore, vmax=maximumCountryScore, clip=True)
-colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=cm.OrRd) # OrRd or afmhot_r
+colorMapper = cm.ScalarMappable(norm=normalizedColorspace, cmap=customColormap) # previously 'OrRd' or 'afmhot_r'
 data_colored = list(map(lambda y: (y[0], list(map(lambda x: (x[0], x[1], x[2], x[3], matplotlib.colors.to_hex(colorMapper.to_rgba(x[3]))), y[1]))), data_combined))
 
 # Test print
@@ -101,7 +111,7 @@ keyframeTimestamps.sort()
 keyframeMatrix = dict()
 
 # Function, returns the nearest values in the array that it lies directly in between. Returns only one value if it lies directly on a value.
-'''def findNearest(array, value):
+def findNearest(array, value):
     a = list(map(lambda x: (abs(value-x[1]), x[0]), enumerate(array)))
     a.sort()
     if a[0][0] == 0:
@@ -118,10 +128,10 @@ def interpolate(array, value):
     else:
         left = (value-a[0])/(a[1]-a[0])
         right = (a[1]-value)/(a[1]-a[0])
-        return value'''
+        return value
 
 
-'''for country in data_colored:
+for country in data_colored:
     if country[1]:
         newKeys = []
         for timestamp in keyframeTimestamps:
@@ -129,7 +139,7 @@ def interpolate(array, value):
                 if timestamp >= country[1][i][0]:
                     newKeys.append(country[1][i][3])
                     break
-        keyframeMatrix.update({country[0] : newKeys})'''
+        keyframeMatrix.update({country[0] : newKeys})
 
 #print(keyframeMatrix)
 
@@ -160,8 +170,6 @@ print("\telse {")
 print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");")
 print("\t}")
 print("}")'''
-
-
 
 # Generate JavaScript code, for changing the colors only
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
