@@ -207,7 +207,10 @@ for subset in colormap:
         content += ("\telse {\n")
         content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
         content += ("\t}\n")
-content += ("}\n")
+content += ("}\n\n")
+content += ("var event = document.createEvent('Event');\n")
+content += ("event.initEvent('input', true, true);\n")
+content += ("document.getElementById(\"timeline\").dispatchEvent(event);\n")
 
 # Write to JavaScript file
 f = open("bodyscript.js", "w")

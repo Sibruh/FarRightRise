@@ -1,4 +1,49 @@
 document.getElementById("timeline").oninput = function() {
+	if (this.value/1000 >= 0.4893322392040209 && this.value/1000 < 0.5270284131705816) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#feba68");
+		}
+	}
+	else if (this.value/1000 >= 0.5270284131705816 && this.value/1000 < 0.602061749923069) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee171");
+		}
+	}
+	else if (this.value/1000 >= 0.602061749923069 && this.value/1000 < 0.6763770643142887) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#feefb5");
+		}
+	}
+	else if (this.value/1000 >= 0.6763770643142887 && this.value/1000 < 0.7510513898861422) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee16f");
+		}
+	}
+	else if (this.value/1000 >= 0.7510513898861422 && this.value/1000 < 0.8260847266386296) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee891");
+		}
+	}
+	else if (this.value/1000 >= 0.8260847266386296 && this.value/1000 < 0.9158375217971074) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee06f");
+		}
+	}
+	else if (this.value/1000 >= 0.9158375217971074) {
+		paths = document.getElementById("Russia").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fede69");
+		}
+	}
+	else {
+		document.getElementById("Russia").setAttribute("fill", "#c0c0c0");
+	}
 	if (this.value/1000 >= 0.43153143912196124 && this.value/1000 < 0.505128731151913) {
 		document.getElementById("North_Macedonia").setAttribute("fill", "#fe8a59");
 	}
@@ -891,3 +936,7 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Austria").setAttribute("fill", "#c0c0c0");
 	}
 }
+
+var event = document.createEvent('Event');
+event.initEvent('input', true, true);
+document.getElementById("timeline").dispatchEvent(event);
