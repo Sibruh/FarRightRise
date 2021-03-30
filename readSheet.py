@@ -7,6 +7,7 @@ from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
+import math
 
 # Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -23,8 +24,6 @@ with open("Countries data - Elections.csv") as file_elections:
     sheet_elections = list(csv.reader(file_elections))
 with open("Countries data - Parties.csv") as file_parties:
     sheet_parties = list(csv.reader(file_parties))
-'''with open("Countries data - Countries.csv") as file_countries:
-    sheet_countries = list(csv.reader(file_countries))'''
 
 # Reads and converts all election data
 data_elections = []
@@ -61,9 +60,13 @@ for i in range(1,len(sheet_parties)):
 # Test print
 #print(data_parties)
 
+def colormapScalingFunction(value):
+    print(value)
+    return ((value+0)**(1/3)).real
+
 # Combine election and party data, add timeline position, add corrected country score (corrected country score = sum of seats*partyScore for each party)
 # Note: the country score is set to be 0.1 or higher
-data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin).days/dateRangeDays, x[0], list(map(lambda z: (z[0], z[1], z[1]*data_parties.get(z[0])[2]), x[1])) if x[1] else x[1], sum(list(map(lambda z: (max(0.1,z[1]*data_parties.get(z[0])[2])), x[1])) if x[1] else x[1])), y[1]))), data_elections))
+data_combined = list(map(lambda y: (y[0], list(map(lambda x: ((x[0]-dateRangeMin).days/dateRangeDays, x[0], list(map(lambda z: (z[0], z[1], z[1]*data_parties.get(z[0])[2]), x[1])) if x[1] else x[1], sum(list(map(lambda z: colormapScalingFunction(max(0.1,z[1]*data_parties.get(z[0])[2])), x[1])) if x[1] else x[1])), y[1]))), data_elections))
 
 # Test print
 '''for x in data_combined:
