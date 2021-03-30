@@ -98,7 +98,7 @@ keyframeTimestamps.sort()
 keyframeMatrix = dict()
 
 # Function, returns the nearest values in the array that it lies directly in between. Returns only one value if it lies directly on a value.
-def findNearest(array, value):
+'''def findNearest(array, value):
     a = list(map(lambda x: (abs(value-x[1]), x[0]), enumerate(array)))
     a.sort()
     if a[0][0] == 0:
@@ -115,7 +115,7 @@ def interpolate(array, value):
     else:
         left = (value-a[0])/(a[1]-a[0])
         right = (a[1]-value)/(a[1]-a[0])
-        return value
+        return value'''
 
 
 '''for country in data_colored:
@@ -162,14 +162,14 @@ print("}")'''
 
 # Generate JavaScript code, for changing the colors only
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
-colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1] and not x[0] in ["Russia", "United Kingdom", "Danish Kingdom"], data_colored)))
+colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
 
 print("\n========== data ==========")
 
-for x in colormap:
+'''for x in colormap:
     print(x[0])
     for y in x[1]:
-        print(y)
+        print(y)'''
 
 print("\n========== code ==========")
 
@@ -177,13 +177,25 @@ print("\n========== code ==========")
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 content = ("document.getElementById(\"timeline\").oninput = function() {\n")
 for subset in colormap:
-    for i in range(0, len(subset[1])):
-        content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
-        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
+    if subset[0] in ["Russia", "United_Kingdom", "Danish_Kingdom"]:
+        for i in range(0, len(subset[1])):
+            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
+            content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
+            content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
+            content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
+            content += ("\t\t}\n")
+            content += ("\t}\n")
+        content += ("\telse {\n")
+        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
         content += ("\t}\n")
-    content += ("\telse {\n")
-    content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
-    content += ("\t}\n")
+    else:
+        for i in range(0, len(subset[1])):
+            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
+            content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
+            content += ("\t}\n")
+        content += ("\telse {\n")
+        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t}\n")
 content += ("}\n")
 
 # Write to JavaScript file

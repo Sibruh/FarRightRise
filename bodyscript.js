@@ -368,6 +368,51 @@ document.getElementById("timeline").oninput = function() {
 	else {
 		document.getElementById("Czech_Republic").setAttribute("fill", "#c0c0c0");
 	}
+	if (this.value/1000 >= 0.6952991917654308 && this.value/1000 < 0.7442281903519263) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#feefd8");
+		}
+	}
+	else if (this.value/1000 >= 0.7442281903519263 && this.value/1000 < 0.7868507846761625) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee9ca");
+		}
+	}
+	else if (this.value/1000 >= 0.7868507846761625 && this.value/1000 < 0.8233844369540793) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee7c7");
+		}
+	}
+	else if (this.value/1000 >= 0.8233844369540793 && this.value/1000 < 0.8741981080787213) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee6c4");
+		}
+	}
+	else if (this.value/1000 >= 0.8741981080787213 && this.value/1000 < 0.9239244681236635) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fee8c9");
+		}
+	}
+	else if (this.value/1000 >= 0.9239244681236635 && this.value/1000 < 0.9764053495705122) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fddbac");
+		}
+	}
+	else if (this.value/1000 >= 0.9764053495705122) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#feeacc");
+		}
+	}
+	else {
+		document.getElementById("Danish_Kingdom").setAttribute("fill", "#c0c0c0");
+	}
 	if (this.value/1000 >= 0.9808633249972817 && this.value/1000 < 0.9981153274618535) {
 		document.getElementById("Portugal").setAttribute("fill", "#fff6e9");
 	}
@@ -706,6 +751,45 @@ document.getElementById("timeline").oninput = function() {
 	}
 	else {
 		document.getElementById("Sweden").setAttribute("fill", "#c0c0c0");
+	}
+	if (this.value/1000 >= 0.6169403066217245 && this.value/1000 < 0.6839186691312384) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff7ec");
+		}
+	}
+	else if (this.value/1000 >= 0.6839186691312384 && this.value/1000 < 0.7382117357109202) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff7ec");
+		}
+	}
+	else if (this.value/1000 >= 0.7382117357109202 && this.value/1000 < 0.7899677431046356) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff7ec");
+		}
+	}
+	else if (this.value/1000 >= 0.7899677431046356 && this.value/1000 < 0.8561849878583596) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff7eb");
+		}
+	}
+	else if (this.value/1000 >= 0.8561849878583596 && this.value/1000 < 0.9224022326120837) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff5e7");
+		}
+	}
+	else if (this.value/1000 >= 0.9224022326120837) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fff7ec");
+		}
+	}
+	else {
+		document.getElementById("United_Kingdom").setAttribute("fill", "#c0c0c0");
 	}
 	if (this.value/1000 >= 0.7877931209452358 && this.value/1000 < 0.9166757275923308) {
 		document.getElementById("Moldova").setAttribute("fill", "#fff1de");
