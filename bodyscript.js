@@ -971,31 +971,43 @@ document.getElementById("timeline").oninput = function() {
 	else if (this.value/1000 >= 0.5527233562416658 && this.value/1000 < 0.6295517488973228) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", "#f2e9e0");
+			paths[i].setAttribute("fill", "#fee893");
 		}
 	}
 	else if (this.value/1000 >= 0.6295517488973228 && this.value/1000 < 0.7027900297466407) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", "#f5ebdb");
+			paths[i].setAttribute("fill", "#fedb67");
 		}
 	}
 	else if (this.value/1000 >= 0.7027900297466407 && this.value/1000 < 0.7964919478920915) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", "#fef3c7");
+			paths[i].setAttribute("fill", "#feca6a");
 		}
 	}
 	else if (this.value/1000 >= 0.7964919478920915 && this.value/1000 < 0.8901938660375424) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", "#fee680");
+			paths[i].setAttribute("fill", "#fea263");
 		}
 	}
-	else if (this.value/1000 >= 0.8901938660375424) {
+	else if (this.value/1000 >= 0.8901938660375424 && this.value/1000 < 0.9293260847266386) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", "#f2e9e0");
+			paths[i].setAttribute("fill", "#fe9a60");
+		}
+	}
+	else if (this.value/1000 >= 0.9293260847266386 && this.value/1000 < 0.976356549389681) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fedc67");
+		}
+	}
+	else if (this.value/1000 >= 0.976356549389681) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", "#fef2bf");
 		}
 	}
 	else {
