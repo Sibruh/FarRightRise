@@ -1,11 +1,18 @@
 @keyframes slide
 {
-  0% { content: 0; }
-  100% { content: 1000; }
+    0% { content: 0; }
+    100% { content: 1000; }
 }
 
 body {
     opacity: 0;
+}
+
+#colorRange {
+    width: 40px;
+    margin-top: 4px;
+    height: 80%;
+    border: 1px solid #000000;
 }
 
 h1 {
@@ -27,6 +34,24 @@ h3 {
     display: flex;
 }
 
+.colorRangeContainer {
+    flex: 10%;
+    z-index: 1000;
+    position: relative;
+}
+
+#colorRangeDesc0 {
+    position: absolute;
+    top: -20px;
+    left: 50px;
+}
+
+#colorRangeDesc1 {
+    position: absolute;
+    bottom: calc(20% - 30px);
+    left: 50px;
+}
+
 .column {
     flex: 50%;
     z-index: 1000;
@@ -37,18 +62,18 @@ footer {
 }
 
 .mapContainer {
-  position: relative;
-  text-align: center;
-  color: #A0A0A0;
-  font-family: Arial, sans-serif;
-  font-size: 16pt;
+    position: relative;
+    text-align: center;
+    color: #A0A0A0;
+    font-family: Arial, sans-serif;
+    font-size: 16pt;
 }
 
 #dateIndicator {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  z-index: 100;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 100;
 }
 
 #timeline {
