@@ -1,3 +1,16 @@
+function pad(n, width, z) {
+	z = z || '0';
+	n = n + '';
+	return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+function getPaddedDate(date) {
+	d = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(date);
+	m = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(date);
+	y = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+	return pad(m,2,'0') + '-' + y;
+}
+
 var selectedCountry = "";
 
 function countryClick(country) {

@@ -1,4 +1,7 @@
 document.getElementById("timeline").oninput = function() {
+	var startDate = new Date(1967, 10, 29);
+	var endDate = new Date(2021, 03, 17);
+	document.getElementById("dateIndicator").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));
 	if (this.value/1000 >= 0.4947174069135296 && this.value/1000 < 0.5697507436660171) {
 		document.getElementById("Ukraine").setAttribute("fill", "#f5ebdb");
 	}

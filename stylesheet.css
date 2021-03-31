@@ -32,6 +32,21 @@ footer {
     margin: 28px 20px 20px 20px;
 }
 
+.mapContainer {
+  position: relative;
+  text-align: center;
+  color: #A0A0A0;
+  font-family: Arial, sans-serif;
+  font-size: 16pt;
+}
+
+#dateIndicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 100;
+}
+
 #timeline {
     animation-name: slide;
     animation-duration: 2s;

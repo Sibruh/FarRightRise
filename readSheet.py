@@ -209,6 +209,9 @@ colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0],
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 content = ("document.getElementById(\"timeline\").oninput = function() {\n")
+content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") + ");\n")
+content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
+content += ("\tdocument.getElementById(\"dateIndicator\").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));\n")
 for subset in colormap:
     if subset[0] in ["Russia", "United_Kingdom", "Danish_Kingdom"]:
         for i in range(0, len(subset[1])):
@@ -289,7 +292,18 @@ else:
 if not (path.exists(countryDir) and path.exists(partyDir)):
     print("ERROR: Run the script in the correct directory")
 else:
-    content = ("var selectedCountry = \"\";\n\n")
+    content = ("function pad(n, width, z) {\n")
+    content += ("\tz = z || '0';\n")
+    content += ("\tn = n + '';\n")
+    content += ("\treturn n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;\n")
+    content += ("}\n\n")
+    content += ("function getPaddedDate(date) {\n")
+    content += ("\td = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(date);\n")
+    content += ("\tm = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(date);\n")
+    content += ("\ty = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);\n")
+    content += ("\treturn pad(m,2,'0') + '-' + y;\n")
+    content += ("}\n\n")
+    content += ("var selectedCountry = \"\";\n\n")
     content += ("function countryClick(country) {\n")
     content += ("\tselectedCountry = country;\n")
     for i, country in enumerate(electionDataMap):
