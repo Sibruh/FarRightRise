@@ -4,6 +4,10 @@
   100% { content: 1000; }
 }
 
+body {
+    opacity: 0;
+}
+
 h1 {
     margin: 0;
     font-family: Arial, sans-serif;
