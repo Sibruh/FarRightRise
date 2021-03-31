@@ -232,6 +232,9 @@ for subset in colormap:
         content += ("\telse {\n")
         content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
         content += ("\t}\n")
+        content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
+        content += ("\t\tcountryClick(selectedCountry)\n")
+        content += ("\t}\n")
 content += ("}\n\n")
 content += ("var event = document.createEvent('Event');\n")
 content += ("event.initEvent('input', true, true);\n")
@@ -286,7 +289,9 @@ else:
 if not (path.exists(countryDir) and path.exists(partyDir)):
     print("ERROR: Run the script in the correct directory")
 else:
-    content = ("function countryClick(country) {\n")
+    content = ("var selectedCountry = \"\";\n\n")
+    content += ("function countryClick(country) {\n")
+    content += ("\tselectedCountry = country;\n")
     for i, country in enumerate(electionDataMap):
         content += ("\t" + ("" if i == 0 else "else ") + "if (country == \"" + country[0] + "\") {\n")
         for i, election in enumerate(country[1]):

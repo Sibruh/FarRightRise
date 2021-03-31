@@ -1,4 +1,7 @@
+var selectedCountry = "";
+
 function countryClick(country) {
+	selectedCountry = country;
 	if (country == "Russia") {
 		if (document.getElementById("timeline").value/1000 >= 0.4893322392040209 && document.getElementById("timeline").value/1000 < 0.5270284131705816) {
 			document.getElementById("textbox").innerHTML = "<h1>Russia</h1>\n<p>Lorem ipsum et cetera Russia</p>\n<h2>Parties</h2>\n<h3>Liberal Democratic Party of Russia</h3>\n<p>Lorem ipsum et cetera Liberal Democratic Party of Russia</p>\n";

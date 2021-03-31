@@ -1,5 +1,16 @@
 h1 {
     margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    color: #843c2e;
+}
+
+h3 {
+    font-family: Arial, sans-serif;
+    color: #fe9a60;
 }
 
 .row {
