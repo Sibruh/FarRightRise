@@ -202,48 +202,12 @@ print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\",
 print("\t}")
 print("}")'''
 
-# Generate JavaScript code, for changing the colors only (bodyscript.js)
+# Generate JavaScript code, for changing the colors only (bodyscript_py.js)
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
-# NIET geinteproleerd:
-'''content = ("document.getElementById(\"timeline\").oninput = function() {\n")
-content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") + ");\n")
-content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
-content += ("\tdocument.getElementById(\"dateIndicator\").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));\n")
-for subset in colormap:
-    if subset[0] in ["Russia", "United_Kingdom", "Danish_Kingdom"]:
-        for i in range(0, len(subset[1])):
-            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
-            content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
-            content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
-            content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
-            content += ("\t\t}\n")
-            content += ("\t}\n")
-        content += ("\telse {\n")
-        content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
-        content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
-        content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t\t}\n")
-        content += ("\t}\n")
-    else:
-        for i in range(0, len(subset[1])):
-            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
-            content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
-            content += ("\t}\n")
-        content += ("\telse {\n")
-        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t}\n")
-        content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
-        content += ("\t\tcountryClick(selectedCountry)\n")
-        content += ("\t}\n")
-content += ("}\n\n")
-content += ("var event = document.createEvent('Event');\n")
-content += ("event.initEvent('input', true, true);\n")
-content += ("document.getElementById(\"timeline\").dispatchEvent(event);\n")'''
-# WEL geinteproleerd:
 content = ("document.getElementById(\"timeline\").oninput = function() {\n")
 content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") + ");\n")
 content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
@@ -254,7 +218,9 @@ for subset in colormap:
             content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
             content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
             content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
-            content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
+            content += ("\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            # Uncomment to disable interpolation:
+            #content += ("\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
             content += ("\t\t}\n")
             content += ("\t}\n")
         content += ("\telse {\n")
@@ -266,7 +232,9 @@ for subset in colormap:
     else:
         for i in range(0, len(subset[1])):
             content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
-            content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"" + str(subset[1][i][1]) + "\");\n")
+            content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            # Uncomment to disable interpolation:
+            #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
             content += ("\t}\n")
         content += ("\telse {\n")
         content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
@@ -279,8 +247,8 @@ content += ("var event = document.createEvent('Event');\n")
 content += ("event.initEvent('input', true, true);\n")
 content += ("document.getElementById(\"timeline\").dispatchEvent(event);\n")
 
-# Write to JavaScript file (bodyscript.js)
-f = open("bodyscript.js", "w")
+# Write to JavaScript file (bodyscript_py.js)
+f = open("bodyscript_py.js", "w")
 f.write(content)
 f.close()
 
@@ -323,7 +291,7 @@ else:
     for y in x[1]:
         print(y)'''
 
-# Combine textpages for all countries and parties and generate JavaScript file (headscript.js)
+# Combine textpages for all countries and parties and generate JavaScript file (headscript_py.js)
 # NOTE: assuming every data entry in the spreadsheet contains at least one party for each country
 if not (path.exists(countryDir) and path.exists(partyDir)):
     print("ERROR: Run the script in the correct directory")
@@ -366,7 +334,7 @@ else:
     content += ("\";\n\t}\n")
     content += ("}\n")
 
-# Write to JavaScript file (headscript.js)
-f = open("headscript.js", "w")
+# Write to JavaScript file (headscript_py.js)
+f = open("headscript_py.js", "w")
 f.write(content)
 f.close()
