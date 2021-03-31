@@ -61,7 +61,6 @@ for i in range(1,len(sheet_parties)):
 #print(data_parties)
 
 def colormapScalingFunction(value):
-    print(value)
     return ((value)**(1/(3))).real
 
 # Combine election and party data, add timeline position, add corrected country score (corrected country score = sum of seats*partyScore for each party)
@@ -108,47 +107,74 @@ data_keyframed.sort(key=lambda x: x[5])
 print("Number of keyframes: " + str(len(data_keyframed)))'''
 
 # Interpolating keyframes for use in plot
-keyframeTimestamps = [data_keyframed[i][0] for i in range(0,len(data_keyframed))]
+keyframeTimestamps = [data_keyframed[i][0] for i in range(0,len(data_keyframed)) if data_keyframed[i][0] >= 0]
 keyframeTimestamps.sort()
 
 keyframeMatrix = dict()
 
-# Function, returns the nearest values in the array that it lies directly in between. Returns only one value if it lies directly on a value.
-def findNearest(array, value):
-    a = list(map(lambda x: (abs(value-x[1]), x[0]), enumerate(array)))
-    a.sort()
-    if a[0][0] == 0:
-        return [a[0][1]]
+# Function, returns True if both values have the same sign, i.e. they are either both negative or both positive.
+def isSameSign(val1, val2):
+    if (val1 < 0 and val2 < 0) or (val1 >= 1 and val2 >= 0):
+        return True
     else:
-        b = list(map(lambda x: x[1], a[:2]))
+        return False
+
+# Function, returns the nearest values in the array that it lies directly in between. Returns only one value if it lies directly on a value.
+def findNearest(timestamp, elections):
+    a = list(map(lambda x: (abs(timestamp-x[1][0]), x[0]), enumerate(elections)))
+    a.sort()
+    if a[0][0] == 0 or len(a) == 1 or isSameSign(timestamp-elections[a[0][1]][0], timestamp-elections[a[1][1]][0]):
+        return [elections[a[0][1]]]
+    else:
+        b = list(map(lambda x: elections[x[1]], a[:2]))
         b.sort()
         return b
 
-def interpolate(array, value):
-    a = findNearest(array, value)
+# Function, returns interpolated score
+def interpolate(timestamp, elections):
+    a = findNearest(timestamp, elections)
     if len(a) == 1:
-        return value
+        return a[0][3]
     else:
-        left = (value-a[0])/(a[1]-a[0])
-        right = (a[1]-value)/(a[1]-a[0])
-        return value
+        left = (timestamp-a[0][0])/(a[1][0]-a[0][0])
+        right = (a[1][0]-timestamp)/(a[1][0]-a[0][0])
+        return a[0][3]*left + a[1][3]*right
 
-
+# Generate keyframes, for all timestamps, for all countries
 for country in data_colored:
     if country[1]:
         newKeys = []
         for timestamp in keyframeTimestamps:
-            for i in range(0, len(country[1])):
-                if timestamp >= country[1][i][0]:
-                    newKeys.append(country[1][i][3])
-                    break
+            newKeys.append(interpolate(timestamp, country[1]))
         keyframeMatrix.update({country[0] : newKeys})
 
-#print(keyframeMatrix)
+# Combine dictionary entries, sum scores of all countries
+plotYvals = [0]*len(list(filter(lambda x: x[0] >= 0, data_keyframed)))
+for key in keyframeMatrix.keys():
+    currentKeyVal = keyframeMatrix.get(key)
+    for i in range(0, len(plotYvals)):
+        plotYvals[i] += currentKeyVal[i]
 
-'''fig, ax = plt.subplots()
-ax.stackplot(keyframeTimestamps, keyframeMatrix.values(), labels=keyframeMatrix.keys())
-plt.show()'''
+# Normalize plot y values, but leave space at the bottom for the timeline
+roomBottom = 0.1
+minimumPlotYval = min(plotYvals)
+plotYvals_normalized = list(map(lambda x: x-minimumPlotYval*(1-roomBottom), plotYvals))
+
+# Generate and save plot
+fig, ax = plt.subplots()
+ax.stackplot(keyframeTimestamps, plotYvals_normalized, colors = ["#c0c0c0"]) # #d3d3d3
+plt.axis('off')
+crop = [0.22,0,0.22,0.17]
+plt.savefig("timelinePlot.svg", transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
+
+# Add 'preserveAspectRatio="none"' tag to .svg file
+svgFile = open("timelinePlot.svg", "r")
+content = svgFile.read()
+svgFile.close()
+splitIndex = content.find("<svg")+5
+svgFile = open("timelinePlot.svg", "w")
+svgFile.write(content[:splitIndex] + "preserveAspectRatio=\"none\" " + content[splitIndex:])
+svgFile.close()
 
 # Old test case, only Hungary
 '''# JavaScript code generation test, only Hungary
@@ -177,15 +203,6 @@ print("}")'''
 # Generate JavaScript code, for changing the colors only
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
-
-print("\n========== data ==========")
-
-'''for x in colormap:
-    print(x[0])
-    for y in x[1]:
-        print(y)'''
-
-print("\n========== code ==========")
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
@@ -224,4 +241,10 @@ f.write(content)
 f.close()
 
 # Test print
-print(content)
+'''print("\n========== data ==========")
+for x in colormap:
+    print(x[0])
+    for y in x[1]:
+        print(y)
+print("\n========== code ==========")
+print(content)'''
