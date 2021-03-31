@@ -1,25 +1,3 @@
-function pad(n, width, z) {
-	z = z || '0';
-	n = n + '';
-	return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-}
-
-function getPaddedDate(date) {
-	d = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(date);
-	m = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(date);
-	y = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
-	return pad(m,2,'0') + '-' + y;
-}
-
-String.prototype.convertToRGB = function(){
-	if(this.length != 6){
-		throw "Only six-digit hex colors are allowed.";
-	}
-	var aRgbHex = this.match(/.{1,2}/g);
-	var aRgb = [parseInt(aRgbHex[0], 16), parseInt(aRgbHex[1], 16), parseInt(aRgbHex[2], 16)];
-	return aRgb;
-}
-
 var selectedCountry = "";
 
 function countryClick(country) {
@@ -916,25 +894,25 @@ function countryClick(country) {
 			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 09 April 1992.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.5527233562416658 && document.getElementById("timeline").value/1000 < 0.6295517488973228) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 01 May 1997.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.1% of the votes</li>\n	<li>UK Independence Party (UKIP) received 0.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 01 May 1997.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.1% of the votes</li>\n	<li>UK Independence Party (UKIP) received 0.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.6295517488973228 && document.getElementById("timeline").value/1000 < 0.7027900297466407) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 07 June 2001.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.2% of the votes</li>\n	<li>UK Independence Party (UKIP) received 1.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 07 June 2001.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.2% of the votes</li>\n	<li>UK Independence Party (UKIP) received 1.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.7027900297466407 && document.getElementById("timeline").value/1000 < 0.7964919478920915) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 05 May 2005.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.7% of the votes</li>\n	<li>UK Independence Party (UKIP) received 2.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 05 May 2005.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.7% of the votes</li>\n	<li>UK Independence Party (UKIP) received 2.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.7964919478920915 && document.getElementById("timeline").value/1000 < 0.8901938660375424) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 06 May 2010.<\p>\n<ul>\n	<li>British National Party (BNP) received 1.9% of the votes</li>\n	<li>UK Independence Party (UKIP) received 3.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 06 May 2010.<\p>\n<ul>\n	<li>British National Party (BNP) received 1.9% of the votes</li>\n	<li>UK Independence Party (UKIP) received 3.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.8901938660375424 && document.getElementById("timeline").value/1000 < 0.9293260847266386) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 07 May 2015.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 12.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 07 May 2015.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 12.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.9293260847266386 && document.getElementById("timeline").value/1000 < 0.976356549389681) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 08 June 2017.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 1.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 08 June 2017.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 1.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else if (document.getElementById("timeline").value/1000 >= 0.976356549389681) {
-			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 12 December 2019.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 0.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n";
+			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Thursday 12 December 2019.<\p>\n<ul>\n	<li>British National Party (BNP) received 0.0% of the votes</li>\n	<li>UK Independence Party (UKIP) received 0.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>British National Party</h3>\n<p>Lorem ipsum et cetera British National Party</p>\n<h3>UK Independence Party</h3>\n<p>Lorem ipsum et cetera UK Independence Party</p>\n";
 		}
 		else {
 			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n";
