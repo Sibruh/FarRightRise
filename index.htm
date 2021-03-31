@@ -6,6 +6,9 @@
         <!--<link rel="stylesheet" type="text/css" href="files/style.css">-->
 
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script src="headscript.js" defer></script>
     </head>
     <body>
@@ -6554,8 +6557,9 @@
             </div>
         </div>
         <footer>
-            <input type="range" min="0" max="1000" value="1000" id="timeline">
+            <input type="range" min="0" max="1000" value="0" id="timeline" onclick="stopAnimation()">
         </footer>
         <script src="bodyscript.js" defer></script>
+        <script src="animationscript.js" defer></script>
     </body>
 </html>
