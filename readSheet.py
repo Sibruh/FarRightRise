@@ -326,7 +326,7 @@ else:
             content += f.read().replace("\n", "\\n")
             f.close()
             content += "<h2>Latest election</h2>\\n"
-            content += "<p>At this time, the most recent election was held at " + election[1].strftime("%A %d %B %Y") + ".<\p>\\n"
+            content += "<p>At this time, the most recent election in which at least one far-right party participated was held at " + election[1].strftime("%A %d %B %Y") + ".<\p>\\n"
             content += "<ul>\\n"
             for party in election[2]:
                 content += "\t<li>" + data_parties.get(party[0])[0] + " (" + data_parties.get(party[0])[1] + ") received " + str(party[1]) + "% of the votes</li>\\n"
