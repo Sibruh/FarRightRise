@@ -2,7 +2,33 @@ var selectedCountry = "";
 
 function countryClick(country) {
 	selectedCountry = country;
-	if (country == "Russia") {
+	if (country == "Ukraine") {
+		if (document.getElementById("timeline").value/1000 >= 0.4947174069135296 && document.getElementById("timeline").value/1000 < 0.5697507436660171) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 27 March 1994.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 0.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5697507436660171 && document.getElementById("timeline").value/1000 < 0.719458405990358) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 29 March 1998.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 0.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.719458405990358 && document.getElementById("timeline").value/1000 < 0.747820289260437) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 26 March 2006.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 0.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.747820289260437 && document.getElementById("timeline").value/1000 < 0.8429582521284235) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 30 September 2007.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 0.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8429582521284235 && document.getElementById("timeline").value/1000 < 0.8802954149143501) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 28 October 2012.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 10.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8802954149143501 && document.getElementById("timeline").value/1000 < 0.9689711765309262) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 26 October 2014.<\p>\n<ul>\n	<li>Svoboda (Svoboda) received 4.7% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9689711765309262) {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 21 July 2019.<\p>\n<ul>\n	<li>Narional Corps (NC) received 2.2% of the votes</li>\n	<li>Svoboda (Svoboda) received 2.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Narional Corps</h3>\n<p>Lorem ipsum et cetera National Corps</p>\n<h3>Svoboda</h3>\n<p>Lorem ipsum et cetera Svoboda</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Ukraine</h1>\n<p>Lorem ipsum et cetera Ukraine</p>\n";
+		}
+	}
+	else if (country == "Russia") {
 		if (document.getElementById("timeline").value/1000 >= 0.4893322392040209 && document.getElementById("timeline").value/1000 < 0.5270284131705816) {
 			document.getElementById("textbox").innerHTML = "<h1>Russia</h1>\n<p>Lorem ipsum et cetera Russia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election was held at Sunday 12 December 1993.<\p>\n<ul>\n	<li>Liberal Democratic Party of Russia (LDPR) received 22.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Liberal Democratic Party of Russia</h3>\n<p>Lorem ipsum et cetera Liberal Democratic Party of Russia</p>\n";
 		}

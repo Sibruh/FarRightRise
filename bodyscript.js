@@ -1,4 +1,31 @@
 document.getElementById("timeline").oninput = function() {
+	if (this.value/1000 >= 0.4947174069135296 && this.value/1000 < 0.5697507436660171) {
+		document.getElementById("Ukraine").setAttribute("fill", "#f5ebdb");
+	}
+	else if (this.value/1000 >= 0.5697507436660171 && this.value/1000 < 0.719458405990358) {
+		document.getElementById("Ukraine").setAttribute("fill", "#f5ebdb");
+	}
+	else if (this.value/1000 >= 0.719458405990358 && this.value/1000 < 0.747820289260437) {
+		document.getElementById("Ukraine").setAttribute("fill", "#fcefd6");
+	}
+	else if (this.value/1000 >= 0.747820289260437 && this.value/1000 < 0.8429582521284235) {
+		document.getElementById("Ukraine").setAttribute("fill", "#fef2bf");
+	}
+	else if (this.value/1000 >= 0.8429582521284235 && this.value/1000 < 0.8802954149143501) {
+		document.getElementById("Ukraine").setAttribute("fill", "#feca6a");
+	}
+	else if (this.value/1000 >= 0.8802954149143501 && this.value/1000 < 0.9689711765309262) {
+		document.getElementById("Ukraine").setAttribute("fill", "#fedc67");
+	}
+	else if (this.value/1000 >= 0.9689711765309262) {
+		document.getElementById("Ukraine").setAttribute("fill", "#fea964");
+	}
+	else {
+		document.getElementById("Ukraine").setAttribute("fill", "#c0c0c0");
+	}
+	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
+		countryClick(selectedCountry)
+	}
 	if (this.value/1000 >= 0.4893322392040209 && this.value/1000 < 0.5270284131705816) {
 		paths = document.getElementById("Russia").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
