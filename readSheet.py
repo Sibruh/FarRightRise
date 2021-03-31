@@ -208,6 +208,7 @@ colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0],
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
+undefinedToDefinedTransitionLength = 0.1
 content = ("document.getElementById(\"timeline\").oninput = function() {\n")
 content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") + ");\n")
 content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
@@ -225,8 +226,17 @@ for subset in colormap:
             content += ("\t}\n")
         content += ("\telse {\n")
         content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
-        content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
-        content += ("\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
+        content += ("\t\t\tfor (i = 0; i < paths.length; i++) {\n")
+        # Uncomment to disable interpolation:
+        #content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t\t}\n")
+        content += ("\t\t}\n")
+        content += ("\t\telse {\n")
+        content += ("\t\t\tfor (i = 0; i < paths.length; i++) {\n")
+        content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\t}\n")
         content += ("\t\t}\n")
         content += ("\t}\n")
     else:
@@ -237,7 +247,14 @@ for subset in colormap:
             #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
             content += ("\t}\n")
         content += ("\telse {\n")
-        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
+        # Uncomment to disable interpolation:
+        #content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t}\n")
+        content += ("\t\telse {\n")
+        content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t}\n")
         content += ("\t}\n")
         content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
         content += ("\t\tcountryClick(selectedCountry)\n")
