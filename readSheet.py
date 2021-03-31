@@ -158,7 +158,7 @@ for key in keyframeMatrix.keys():
         plotYvals[i] += currentKeyVal[i]
 
 # Normalize plot y values, but leave space at the bottom for the timeline
-roomBottom = 0.1
+roomBottom = 0.05
 minimumPlotYval = min(plotYvals)
 plotYvals_normalized = list(map(lambda x: x-minimumPlotYval*(1-roomBottom), plotYvals))
 
