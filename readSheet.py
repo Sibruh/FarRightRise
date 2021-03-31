@@ -8,6 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import math
+import os
+import os.path as path
 
 # Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -200,7 +202,7 @@ print("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\",
 print("\t}")
 print("}")'''
 
-# Generate JavaScript code, for changing the colors only
+# Generate JavaScript code, for changing the colors only (bodyscript.js)
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
 
@@ -235,7 +237,7 @@ content += ("var event = document.createEvent('Event');\n")
 content += ("event.initEvent('input', true, true);\n")
 content += ("document.getElementById(\"timeline\").dispatchEvent(event);\n")
 
-# Write to JavaScript file
+# Write to JavaScript file (bodyscript.js)
 f = open("bodyscript.js", "w")
 f.write(content)
 f.close()
@@ -248,3 +250,73 @@ for x in colormap:
         print(y)
 print("\n========== code ==========")
 print(content)'''
+
+# Create list of countries and parties
+countriesList = list(map(lambda x: x[0].replace(" ", "_"), data_colored))
+partiesList = list(data_parties.keys())
+electionDataMap = list(filter(lambda x: x[1], map(lambda x: (x[0].replace(" ", "_"), x[1]), data_colored)))
+
+# Check if .htm files for all countries and partie exist, and create them if this is not yet the case
+countryDir = "textpages//countries//"
+partyDir = "textpages//parties//"
+if not (path.exists(countryDir) and path.exists(partyDir)):
+    print("ERROR: Run the script in the correct directory")
+else:
+    for country in countriesList:
+        countryPath = countryDir + country + ".htm"
+        if not (path.exists(countryPath) and path.isfile(countryPath)):
+            f = open(countryPath, "w")
+            f.write("<h1>" + country + "</h1>\n<p>Lorem ipsum et cetera " + country + "</p>\n")
+            f.close()
+    for party in partiesList:
+        partyPath = partyDir + party + ".htm"
+        if not (path.exists(partyPath) and path.isfile(partyPath)):
+            f = open(partyPath, "w")
+            f.write("<h3>" + data_parties.get(party)[0] + "</h3>\n<p>Lorem ipsum et cetera " + data_parties.get(party)[0] + "</p>\n")
+            f.close()
+
+# Test print
+'''for x in electionDataMap:
+    print(x[0])
+    for y in x[1]:
+        print(y)'''
+
+# Combine textpages for all countries and parties and generate JavaScript file (headscript.js)
+# NOTE: assuming every data entry in the spreadsheet contains at least one party for each country
+if not (path.exists(countryDir) and path.exists(partyDir)):
+    print("ERROR: Run the script in the correct directory")
+else:
+    content = ("function countryClick(country) {\n")
+    for i, country in enumerate(electionDataMap):
+        content += ("\t" + ("" if i == 0 else "else ") + "if (country == \"" + country[0] + "\") {\n")
+        for i, election in enumerate(country[1]):
+            content += ("\t\t" + ("" if i == 0 else "else ") + "if (document.getElementById(\"timeline\").value/1000 >= " + str(election[0]) + ((" && document.getElementById(\"timeline\").value/1000 < " + str(country[1][i+1][0])) if i < len(country[1])-1 else "") + ") {\n")
+            content += ("\t\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
+            # Add .htm file contents to content
+            f = open(countryDir + country[0] + ".htm", "r")
+            content += f.read().replace("\n", "\\n")
+            f.close()
+            content += "<h2>Parties</h2>\\n"
+            for party in election[2]:
+                f = open(partyDir + party[0] + ".htm", "r")
+                content += f.read().replace("\n", "\\n")
+                f.close()
+            content += ("\";\n\t\t}\n")
+        content += ("\t\telse {\n")
+        content += ("\t\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
+        # Add .htm file contents to content
+        f = open(countryDir + country[0] + ".htm", "r")
+        content += f.read().replace("\n", "\\n")
+        f.close()
+        content += ("\";\n\t\t}\n")
+        content += ("\t}\n")
+    content += ("\telse {\n")
+    content += ("\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
+    content += "<p>Unfortunately, there is not yet any data available for this country.</p>"
+    content += ("\";\n\t}\n")
+    content += ("}\n")
+
+# Write to JavaScript file (headscript.js)
+f = open("headscript.js", "w")
+f.write(content)
+f.close()
