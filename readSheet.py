@@ -164,7 +164,7 @@ plotYvals_normalized = list(map(lambda x: x-minimumPlotYval*(1-roomBottom), plot
 
 # Generate and save plot
 fig, ax = plt.subplots()
-ax.stackplot(keyframeTimestamps, plotYvals_normalized, colors = ["#c0c0c0"]) # #d3d3d3
+ax.stackplot(keyframeTimestamps, plotYvals_normalized, colors = ["#606060"]) # #d3d3d3
 plt.axis('off')
 crop = [0.22,0,0.22,0.17]
 plt.savefig("timelinePlot.svg", transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
@@ -205,6 +205,66 @@ print("}")'''
 # Generate JavaScript code, for changing the colors only (bodyscript_py.js)
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
+
+# Define democratisation date for each country (country will be colored grey before democratisation date)
+democratisationDates = {
+                        #'Ukraine',
+                        #'Russia',
+                        #'North_Macedonia',
+                        #'Bulgaria',
+                        #'Lithuania',
+                        #'Latvia',
+                        #'Estonia',
+                        'Greece': '12-10-1944',
+                        #'Cyprus',
+                        'Turkey': '1-5-1950',
+                        #'Croatia',
+                        #'Romania',
+                        #'Serbia',
+                        'Finland': '6-12-1917',
+                        #'Slovakia': '1-1-1945',
+                        'Luxembourg': '10-9-1944',
+                        'Norway': '9-5-1945',
+                        #'Slovenia': '9-5-1945',
+                        #'Czech_Republic': '9-5-1945',
+                        'Danish_Kingdom': '4-5-1945',
+                        'Portugal': '25-4-1976',
+                        'Poland': '1-1-1991',
+                        #'Spain': 'ALREADY CORRECTLY ALIGNED',
+                        'Italy': '1-1-1945',
+                        #'Hungary',
+                        'Switzerland': '1-1-1900',
+                        'France': '25-8-1944',
+                        #'Germany': 'ALREADY CORRECTLY ALIGNED',
+                        'The_Netherlands': '5-5-1945',
+                        'Belgium': '1-1-1945',
+                        'Sweden': '1-1-1900',
+                        'United_Kingdom': '1-1-1900',
+                        'Ireland': '11-7-1921',
+                        #'Bosnia_and_Herzegovina',
+                        'Iceland': '17-6-1944',
+                        #'Moldova',
+                        'Malta': '18-9-1964',
+                        'Austria': '9-5-1945',
+                        #'Belarus',
+                        'Albania': '29-11-1944',
+                        #'Kosovo',
+                        #'Montenegro'
+                        }
+
+# Add initial keyframes at democratisation dates
+fourYearInterval = 1461/dateRangeDays
+for country in colormap:
+    if country[0] in democratisationDates:
+        nextKeyPos = country[1][0][0]
+        country[1].insert(0, (nextKeyPos-fourYearInterval, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+        country[1].insert(0, (((datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+
+# Test print
+for x in colormap:
+    print(x[0])
+    for y in x[1]:
+        print(y)
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.

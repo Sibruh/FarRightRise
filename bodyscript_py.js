@@ -222,7 +222,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.541388860395938 && this.value/1000 < 0.6860703661914043) {
+	if (this.value/1000 >= -0.43168530105651864 && this.value/1000 < 0.4664580982664889) {
+		document.getElementById("Greece").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.43168530105651864))/0.8981433993230075)));
+	}
+	else if (this.value/1000 >= 0.4664580982664889 && this.value/1000 < 0.541388860395938) {
+		document.getElementById("Greece").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.4664580982664889))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.541388860395938 && this.value/1000 < 0.6860703661914043) {
 		document.getElementById("Greece").setAttribute("fill", interpolateColor("#f2e9e0", "#fedd68", ((this.value/1000-(0.541388860395938))/0.14468150579546624)));
 	}
 	else if (this.value/1000 >= 0.6860703661914043 && this.value/1000 < 0.7471022668991691) {
@@ -250,8 +256,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Greece").setAttribute("fill", interpolateColor("#fe8d5a", "#fe8d5a", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.48724997435634426) {
-		document.getElementById("Greece").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.48724997435634426))/0.05413888603959377)));
+		if (this.value/1000 >= -0.3885167709508668) {
+		document.getElementById("Greece").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.3885167709508668))/-0.04316853010565186)));
 		}
 		else {
 			document.getElementById("Greece").setAttribute("fill", "#c0c0c0");
@@ -286,7 +292,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.03661914042465894 && this.value/1000 < 0.11165247717714638) {
+	if (this.value/1000 >= -0.32772592060724176 && this.value/1000 < -0.03831162170479023) {
+		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.32772592060724176))/0.2894142989024515)));
+	}
+	else if (this.value/1000 >= -0.03831162170479023 && this.value/1000 < 0.03661914042465894) {
+		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#f2e9e0", "#fee06f", ((this.value/1000-(-0.03831162170479023))/0.07493076212944917)));
+	}
+	else if (this.value/1000 >= 0.03661914042465894 && this.value/1000 < 0.11165247717714638) {
 		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#fee06f", "#fedf6c", ((this.value/1000-(0.03661914042465894))/0.07503333675248744)));
 	}
 	else if (this.value/1000 >= 0.11165247717714638 && this.value/1000 < 0.1798646014975895) {
@@ -320,8 +332,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#fec76a", "#fec76a", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.03295722638219305) {
-		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#c0c0c0", "#fee06f", ((this.value/1000-(0.03295722638219305))/0.003661914042465894)));
+		if (this.value/1000 >= -0.29495332854651757) {
+		document.getElementById("Turkey").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.29495332854651757))/-0.03277259206072419)));
 		}
 		else {
 			document.getElementById("Turkey").setAttribute("fill", "#c0c0c0");
@@ -441,7 +453,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.5880603138783465 && this.value/1000 < 0.6627346394502001) {
+	if (this.value/1000 >= -0.9346599651246281 && this.value/1000 < 0.5131295517488973) {
+		document.getElementById("Finland").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.9346599651246281))/1.4477895168735255)));
+	}
+	else if (this.value/1000 >= 0.5131295517488973 && this.value/1000 < 0.5880603138783465) {
+		document.getElementById("Finland").setAttribute("fill", interpolateColor("#f2e9e0", "#feedae", ((this.value/1000-(0.5131295517488973))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.5880603138783465 && this.value/1000 < 0.6627346394502001) {
 		document.getElementById("Finland").setAttribute("fill", interpolateColor("#feedae", "#fee78c", ((this.value/1000-(0.5880603138783465))/0.0746743255718536)));
 	}
 	else if (this.value/1000 >= 0.6627346394502001 && this.value/1000 < 0.7377679762026874) {
@@ -460,8 +478,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Finland").setAttribute("fill", interpolateColor("#feaa65", "#feaa65", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.5292542824905119) {
-		document.getElementById("Finland").setAttribute("fill", interpolateColor("#c0c0c0", "#feedae", ((this.value/1000-(0.5292542824905119))/0.05880603138783458)));
+		if (this.value/1000 >= -0.8411939686121653) {
+		document.getElementById("Finland").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.8411939686121653))/-0.09346599651246279)));
 		}
 		else {
 			document.getElementById("Finland").setAttribute("fill", "#c0c0c0");
@@ -511,7 +529,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.4053236229356857 && this.value/1000 < 0.49866652990050264) {
+	if (this.value/1000 >= -0.43332649502513076 && this.value/1000 < 0.33039286080623653) {
+		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.43332649502513076))/0.7637193558313673)));
+	}
+	else if (this.value/1000 >= 0.33039286080623653 && this.value/1000 < 0.4053236229356857) {
+		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#f2e9e0", "#fed56a", ((this.value/1000-(0.33039286080623653))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.4053236229356857 && this.value/1000 < 0.49866652990050264) {
 		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#fed56a", "#fed06b", ((this.value/1000-(0.4053236229356857))/0.09334290696481695)));
 	}
 	else if (this.value/1000 >= 0.49866652990050264 && this.value/1000 < 0.5923684480459535) {
@@ -533,8 +557,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#fed36a", "#fed36a", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.36479126064211714) {
-		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#c0c0c0", "#fed56a", ((this.value/1000-(0.36479126064211714))/0.04053236229356855)));
+		if (this.value/1000 >= -0.3899938455226177) {
+		document.getElementById("Luxembourg").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.3899938455226177))/-0.04333264950251309)));
 		}
 		else {
 			document.getElementById("Luxembourg").setAttribute("fill", "#c0c0c0");
@@ -543,7 +567,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.10985742127397682 && this.value/1000 < 0.18489075802646426) {
+	if (this.value/1000 >= -0.4209662529490204 && this.value/1000 < 0.03492665914452765) {
+		document.getElementById("Norway").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.4209662529490204))/0.45589291209354804)));
+	}
+	else if (this.value/1000 >= 0.03492665914452765 && this.value/1000 < 0.10985742127397682) {
+		document.getElementById("Norway").setAttribute("fill", interpolateColor("#f2e9e0", "#fedc67", ((this.value/1000-(0.03492665914452765))/0.07493076212944917)));
+	}
+	else if (this.value/1000 >= 0.10985742127397682 && this.value/1000 < 0.18489075802646426) {
 		document.getElementById("Norway").setAttribute("fill", interpolateColor("#fedc67", "#fee680", ((this.value/1000-(0.10985742127397682))/0.07503333675248744)));
 	}
 	else if (this.value/1000 >= 0.18489075802646426 && this.value/1000 < 0.2599240947789517) {
@@ -580,8 +610,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Norway").setAttribute("fill", interpolateColor("#feb367", "#feb367", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.09887167914657914) {
-		document.getElementById("Norway").setAttribute("fill", interpolateColor("#c0c0c0", "#fedc67", ((this.value/1000-(0.09887167914657914))/0.010985742127397682)));
+		if (this.value/1000 >= -0.37886962765411836) {
+		document.getElementById("Norway").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.37886962765411836))/-0.042096625294902046)));
 		}
 		else {
 			document.getElementById("Norway").setAttribute("fill", "#c0c0c0");
@@ -645,7 +675,19 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.5688275720586727 && this.value/1000 < 0.6380654426094984) {
+	if (this.value/1000 >= -0.42122268950661607 && this.value/1000 < 0.4938968099292236) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.42122268950661607))/0.9151194994358396)));
+		}
+	}
+	else if (this.value/1000 >= 0.4938968099292236 && this.value/1000 < 0.5688275720586727) {
+		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#fed669", ((this.value/1000-(0.4938968099292236))/0.07493076212944916)));
+		}
+	}
+	else if (this.value/1000 >= 0.5688275720586727 && this.value/1000 < 0.6380654426094984) {
 		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
 			paths[i].setAttribute("fill", interpolateColor("#fed669", "#fec269", ((this.value/1000-(0.5688275720586727))/0.06923787055082564)));
@@ -689,9 +731,9 @@ document.getElementById("timeline").oninput = function() {
 	}
 	else {
 		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		if (this.value/1000 >= 0.5119448148528055) {
+		if (this.value/1000 >= -0.37910042055595444) {
 			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#fed669", ((this.value/1000-(0.5119448148528055))/0.05688275720586722)));
+				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.37910042055595444))/-0.04212226895066162)));
 			}
 		}
 		else {
@@ -700,15 +742,21 @@ document.getElementById("timeline").oninput = function() {
 			}
 		}
 	}
-	if (this.value/1000 >= 0.9729202995178993 && this.value/1000 < 0.9973330598010053) {
+	if (this.value/1000 >= 0.15904195302082264 && this.value/1000 < 0.8979895373884501) {
+		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.15904195302082264))/0.7389475843676274)));
+	}
+	else if (this.value/1000 >= 0.8979895373884501 && this.value/1000 < 0.9729202995178993) {
+		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#f2e9e0", "#feea9b", ((this.value/1000-(0.8979895373884501))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.9729202995178993 && this.value/1000 < 0.9973330598010053) {
 		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#feea9b", "#fec36a", ((this.value/1000-(0.9729202995178993))/0.024412760283106016)));
 	}
 	else if (this.value/1000 >= 0.9973330598010053) {
 		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#fec36a", "#fec36a", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.8756282695661094) {
-		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#c0c0c0", "#feea9b", ((this.value/1000-(0.8756282695661094))/0.09729202995178987)));
+		if (this.value/1000 >= 0.14313775771874038) {
+		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.14313775771874038))/0.015904195302082258)));
 		}
 		else {
 			document.getElementById("Portugal").setAttribute("fill", "#c0c0c0");
@@ -717,7 +765,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.6350907785413888 && this.value/1000 < 0.7101241152938763) {
+	if (this.value/1000 >= 0.43414709200943685 && this.value/1000 < 0.5601600164119397) {
+		document.getElementById("Poland").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.43414709200943685))/0.12601292440250283)));
+	}
+	else if (this.value/1000 >= 0.5601600164119397 && this.value/1000 < 0.6350907785413888) {
+		document.getElementById("Poland").setAttribute("fill", interpolateColor("#f2e9e0", "#fece6b", ((this.value/1000-(0.5601600164119397))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.6350907785413888 && this.value/1000 < 0.7101241152938763) {
 		document.getElementById("Poland").setAttribute("fill", interpolateColor("#fece6b", "#fe8a59", ((this.value/1000-(0.6350907785413888))/0.07503333675248747)));
 	}
 	else if (this.value/1000 >= 0.7101241152938763 && this.value/1000 < 0.7488973228023387) {
@@ -736,8 +790,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Poland").setAttribute("fill", interpolateColor("#843c2e", "#843c2e", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.57158170068725) {
-		document.getElementById("Poland").setAttribute("fill", interpolateColor("#c0c0c0", "#fece6b", ((this.value/1000-(0.57158170068725))/0.06350907785413884)));
+		if (this.value/1000 >= 0.39073238280849315) {
+		document.getElementById("Poland").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.39073238280849315))/0.0434147092009437)));
 		}
 		else {
 			document.getElementById("Poland").setAttribute("fill", "#c0c0c0");
@@ -772,7 +826,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.4577392553082367 && this.value/1000 < 0.4947174069135296) {
+	if (this.value/1000 >= -0.42753102882346905 && this.value/1000 < 0.38280849317878757) {
+		document.getElementById("Italy").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.42753102882346905))/0.8103395220022567)));
+	}
+	else if (this.value/1000 >= 0.38280849317878757 && this.value/1000 < 0.4577392553082367) {
+		document.getElementById("Italy").setAttribute("fill", interpolateColor("#f2e9e0", "#fed26a", ((this.value/1000-(0.38280849317878757))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.4577392553082367 && this.value/1000 < 0.4947174069135296) {
 		document.getElementById("Italy").setAttribute("fill", interpolateColor("#fed26a", "#fed26a", ((this.value/1000-(0.4577392553082367))/0.036978151605292886)));
 	}
 	else if (this.value/1000 >= 0.4947174069135296 && this.value/1000 < 0.533490614421992) {
@@ -797,8 +857,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Italy").setAttribute("fill", interpolateColor("#d9573a", "#d9573a", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.41196532977741307) {
-		document.getElementById("Italy").setAttribute("fill", interpolateColor("#c0c0c0", "#fed26a", ((this.value/1000-(0.41196532977741307))/0.045773925530823656)));
+		if (this.value/1000 >= -0.38477792594112215) {
+		document.getElementById("Italy").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.38477792594112215))/-0.042753102882346905)));
 		}
 		else {
 			document.getElementById("Italy").setAttribute("fill", "#c0c0c0");
@@ -842,7 +902,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.0 && this.value/1000 < 0.07503333675248744) {
+	if (this.value/1000 >= -1.2704892809518924 && this.value/1000 < -0.07493076212944917) {
+		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-1.2704892809518924))/1.1955585188224431)));
+	}
+	else if (this.value/1000 >= -0.07493076212944917 && this.value/1000 < 0.0) {
+		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#f2e9e0", "#fef2cd", ((this.value/1000-(-0.07493076212944917))/0.07493076212944917)));
+	}
+	else if (this.value/1000 >= 0.0 && this.value/1000 < 0.07503333675248744) {
 		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#fef2cd", "#ec6b48", ((this.value/1000-(0.0))/0.07503333675248744)));
 	}
 	else if (this.value/1000 >= 0.07503333675248744 && this.value/1000 < 0.14970766232434096) {
@@ -885,8 +951,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#f2754e", "#f2754e", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.0) {
-		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#c0c0c0", "#fef2cd", ((this.value/1000-(0.0))/0.0)));
+		if (this.value/1000 >= -1.1434403528567032) {
+		document.getElementById("Switzerland").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-1.1434403528567032))/-0.1270489280951892)));
 		}
 		else {
 			document.getElementById("Switzerland").setAttribute("fill", "#c0c0c0");
@@ -895,7 +961,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.10016411939686122 && this.value/1000 < 0.19422504872294594) {
+	if (this.value/1000 >= -0.43414709200943685 && this.value/1000 < 0.02523335726741205) {
+		document.getElementById("France").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.43414709200943685))/0.4593804492768489)));
+	}
+	else if (this.value/1000 >= 0.02523335726741205 && this.value/1000 < 0.10016411939686122) {
+		document.getElementById("France").setAttribute("fill", interpolateColor("#f2e9e0", "#fef0d3", ((this.value/1000-(0.02523335726741205))/0.07493076212944917)));
+	}
+	else if (this.value/1000 >= 0.10016411939686122 && this.value/1000 < 0.19422504872294594) {
 		document.getElementById("France").setAttribute("fill", interpolateColor("#fef0d3", "#f9edd8", ((this.value/1000-(0.10016411939686122))/0.09406092932608472)));
 	}
 	else if (this.value/1000 >= 0.19422504872294594 && this.value/1000 < 0.25525694943071087) {
@@ -926,8 +998,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("France").setAttribute("fill", interpolateColor("#f77b51", "#f77b51", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.0901477074571751) {
-		document.getElementById("France").setAttribute("fill", interpolateColor("#c0c0c0", "#fef0d3", ((this.value/1000-(0.0901477074571751))/0.010016411939686123)));
+		if (this.value/1000 >= -0.39073238280849315) {
+		document.getElementById("France").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.39073238280849315))/-0.0434147092009437)));
 		}
 		else {
 			document.getElementById("France").setAttribute("fill", "#c0c0c0");
@@ -998,7 +1070,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.3476766847881834 && this.value/1000 < 0.40942660785721613) {
+	if (this.value/1000 >= -0.4211714021950969 && this.value/1000 < 0.27274592265873426) {
+		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.4211714021950969))/0.6939173248538312)));
+	}
+	else if (this.value/1000 >= 0.27274592265873426 && this.value/1000 < 0.3476766847881834) {
+		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.27274592265873426))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.3476766847881834 && this.value/1000 < 0.40942660785721613) {
 		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#f2e9e0", "#feefb5", ((this.value/1000-(0.3476766847881834))/0.06174992306903271)));
 	}
 	else if (this.value/1000 >= 0.40942660785721613 && this.value/1000 < 0.4966150374397374) {
@@ -1032,8 +1110,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#e66543", "#e66543", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.3129090163093651) {
-		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.3129090163093651))/0.03476766847881835)));
+		if (this.value/1000 >= -0.3790542619755872) {
+		document.getElementById("The_Netherlands").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.3790542619755872))/-0.042117140219509686)));
 		}
 		else {
 			document.getElementById("The_Netherlands").setAttribute("fill", "#c0c0c0");
@@ -1042,7 +1120,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.26279618422402296 && this.value/1000 < 0.33639347625397475) {
+	if (this.value/1000 >= -0.42753102882346905 && this.value/1000 < 0.1878654220945738) {
+		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.42753102882346905))/0.6153964509180428)));
+	}
+	else if (this.value/1000 >= 0.1878654220945738 && this.value/1000 < 0.26279618422402296) {
+		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#f2e9e0", "#feeca7", ((this.value/1000-(0.1878654220945738))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.26279618422402296 && this.value/1000 < 0.33639347625397475) {
 		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#feeca7", "#fede69", ((this.value/1000-(0.26279618422402296))/0.0735972920299518)));
 	}
 	else if (this.value/1000 >= 0.33639347625397475 && this.value/1000 < 0.37696173966560675) {
@@ -1076,8 +1160,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#fec269", "#fec269", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.23651656580162067) {
-		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#c0c0c0", "#feeca7", ((this.value/1000-(0.23651656580162067))/0.026279618422402284)));
+		if (this.value/1000 >= -0.38477792594112215) {
+		document.getElementById("Belgium").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.38477792594112215))/-0.042753102882346905)));
 		}
 		else {
 			document.getElementById("Belgium").setAttribute("fill", "#c0c0c0");
@@ -1086,7 +1170,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.4473279310698533 && this.value/1000 < 0.5036926864293774) {
+	if (this.value/1000 >= -1.2704892809518924 && this.value/1000 < 0.37239716894040414) {
+		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-1.2704892809518924))/1.6428864498922966)));
+	}
+	else if (this.value/1000 >= 0.37239716894040414 && this.value/1000 < 0.4473279310698533) {
+		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.37239716894040414))/0.07493076212944916)));
+	}
+	else if (this.value/1000 >= 0.4473279310698533 && this.value/1000 < 0.5036926864293774) {
 		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#f2e9e0", "#f9edd8", ((this.value/1000-(0.4473279310698533))/0.056364755359524066)));
 	}
 	else if (this.value/1000 >= 0.5036926864293774 && this.value/1000 < 0.5787260231818648) {
@@ -1111,8 +1201,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#feaa65", "#feaa65", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.402595137962868) {
-		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.402595137962868))/0.0447327931069853)));
+		if (this.value/1000 >= -1.1434403528567032) {
+		document.getElementById("Sweden").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-1.1434403528567032))/-0.1270489280951892)));
 		}
 		else {
 			document.getElementById("Sweden").setAttribute("fill", "#c0c0c0");
@@ -1121,7 +1211,19 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.4579444045543133 && this.value/1000 < 0.5527233562416658) {
+	if (this.value/1000 >= -1.2704892809518924 && this.value/1000 < 0.38301364242486413) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-1.2704892809518924))/1.6535029233767564)));
+		}
+	}
+	else if (this.value/1000 >= 0.38301364242486413 && this.value/1000 < 0.4579444045543133) {
+		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
+		for (i = 0; i < paths.length; i++) {
+			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.38301364242486413))/0.07493076212944916)));
+		}
+	}
+	else if (this.value/1000 >= 0.4579444045543133 && this.value/1000 < 0.5527233562416658) {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		for (i = 0; i < paths.length; i++) {
 			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#fee893", ((this.value/1000-(0.4579444045543133))/0.09477895168735251)));
@@ -1171,9 +1273,9 @@ document.getElementById("timeline").oninput = function() {
 	}
 	else {
 		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		if (this.value/1000 >= 0.412149964098882) {
+		if (this.value/1000 >= -1.1434403528567032) {
 			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.412149964098882))/0.045794440455431296)));
+				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-1.1434403528567032))/-0.1270489280951892)));
 			}
 		}
 		else {
@@ -1202,7 +1304,13 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
-	if (this.value/1000 >= 0.04379936403733716 && this.value/1000 < 0.23515232331521183) {
+	if (this.value/1000 >= -0.4209662529490204 && this.value/1000 < -0.03113139809211201) {
+		document.getElementById("Austria").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.4209662529490204))/0.3898348548569084)));
+	}
+	else if (this.value/1000 >= -0.03113139809211201 && this.value/1000 < 0.04379936403733716) {
+		document.getElementById("Austria").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.03113139809211201))/0.07493076212944917)));
+	}
+	else if (this.value/1000 >= 0.04379936403733716 && this.value/1000 < 0.23515232331521183) {
 		document.getElementById("Austria").setAttribute("fill", interpolateColor("#f2e9e0", "#fedf6d", ((this.value/1000-(0.04379936403733716))/0.19135295927787466)));
 	}
 	else if (this.value/1000 >= 0.23515232331521183 && this.value/1000 < 0.3572161247307416) {
@@ -1242,8 +1350,8 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Austria").setAttribute("fill", interpolateColor("#feaf66", "#feaf66", 0));
 	}
 	else {
-		if (this.value/1000 >= 0.03941942763360345) {
-		document.getElementById("Austria").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(0.03941942763360345))/0.004379936403733714)));
+		if (this.value/1000 >= -0.37886962765411836) {
+		document.getElementById("Austria").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.37886962765411836))/-0.042096625294902046)));
 		}
 		else {
 			document.getElementById("Austria").setAttribute("fill", "#c0c0c0");
