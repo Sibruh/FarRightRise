@@ -252,6 +252,16 @@ democratisationDates = {
                         #'Montenegro'
                         }
 
+# Define independence date for country (country will be transparent before democratisation date)
+# Undefined countries will be assumed to have not independence date
+independenceDates = {
+                        '25-6-1991': ['Slovenia', 'Croatia', 'Yugoslavia2'],
+                        '8-9-1991': ['North_Macedonia', 'Yugoslavia3'],
+                        '1-3-1992': ['Bosnia_and_Herzegovina', 'Yugoslavia4'],
+                        '21-5-2006': ['Montenegro', 'Serbia'],
+                        '17-2-2008': ['Kosovo'],
+                        }
+
 # Add initial keyframes at democratisation dates
 fourYearInterval = 1461/dateRangeDays
 for country in colormap:
@@ -259,6 +269,11 @@ for country in colormap:
         nextKeyPos = country[1][0][0]
         country[1].insert(0, (nextKeyPos-fourYearInterval, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
         country[1].insert(0, (((datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+
+# Convert independenceDates dict to list where date is converted to slider position
+independenceDatesList = []
+for date in independenceDates.keys():
+    independenceDatesList.append((str(((datetime.datetime.strptime(date, "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays),independenceDates.get(date)))
 
 # Test print
 for x in colormap:
@@ -274,55 +289,48 @@ content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") 
 content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
 content += ("\tdocument.getElementById(\"dateIndicator\").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));\n")
 for subset in colormap:
-    if subset[0] in ["Russia", "United_Kingdom", "Danish_Kingdom"]:
-        for i in range(0, len(subset[1])):
-            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
-            content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
-            content += ("\t\tfor (i = 0; i < paths.length; i++) {\n")
-            content += ("\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            # Uncomment to disable interpolation:
-            #content += ("\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
-            content += ("\t\t}\n")
-            content += ("\t}\n")
-        content += ("\telse {\n")
-        content += ("\t\t" + "paths = document.getElementById(\"" + subset[0] + "\").querySelectorAll(\"path\");\n")
-        content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
-        content += ("\t\t\tfor (i = 0; i < paths.length; i++) {\n")
-        # Uncomment to disable interpolation:
-        #content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
-        content += ("\t\t\t}\n")
-        content += ("\t\t}\n")
-        content += ("\t\telse {\n")
-        content += ("\t\t\tfor (i = 0; i < paths.length; i++) {\n")
-        content += ("\t\t\t\tpaths[i].setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t\t\t}\n")
-        content += ("\t\t}\n")
-        content += ("\t}\n")
-    else:
-        for i in range(0, len(subset[1])):
-            content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
+    for i in range(0, len(subset[1])):
+        content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
+        if subset[0] == "Yugoslavia":
+            content += ("\t\tdocument.getElementById(\"" + Yugoslavia1 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"" + Yugoslavia2 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"" + Yugoslavia3 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"" + Yugoslavia4 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+        else:
             content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            # Uncomment to disable interpolation:
-            #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
-            content += ("\t}\n")
-        content += ("\telse {\n")
-        content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
         # Uncomment to disable interpolation:
-        #content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
-        content += ("\t\t}\n")
-        content += ("\t\telse {\n")
-        content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
-        content += ("\t\t}\n")
+        #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
         content += ("\t}\n")
-        content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
-        content += ("\t\tcountryClick(selectedCountry)\n")
-        content += ("\t}\n")
+    content += ("\telse {\n")
+    content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
+    # Uncomment to disable interpolation:
+    #content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+    content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+    content += ("\t\t}\n")
+    content += ("\t\telse {\n")
+    content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+    content += ("\t\t}\n")
+    content += ("\t}\n")
+    content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
+    content += ("\t\tcountryClick(selectedCountry)\n")
+    content += ("\t}\n")
+for iDate in independenceDatesList:
+    content += ("\tif (this.value/1000 < " + str(iDate[0]) + ") {\n")
+    for iCountry in iDate[1]:
+        content += ("\t\tdocument.getElementById(\"" + iCountry + "\").style.display = \"none\";\n")
+    content += ("\t}\n")
+    content += ("\telse {\n")
+    for iCountry in iDate[1]:
+        content += ("\t\tdocument.getElementById(\"" + iCountry + "\").style.display = \"block\";\n")
+    content += ("\t}\n")
 content += ("}\n\n")
 content += ("var event = document.createEvent('Event');\n")
 content += ("event.initEvent('input', true, true);\n")
 content += ("document.getElementById(\"timeline\").dispatchEvent(event);\n")
+
+# Test print
+'''for x in independenceDatesList:
+    print(x)'''
 
 # Write to JavaScript file (bodyscript_py.js)
 f = open("bodyscript_py.js", "w")

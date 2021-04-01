@@ -35,59 +35,36 @@ document.getElementById("timeline").oninput = function() {
 		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= 0.4893322392040209 && this.value/1000 < 0.5270284131705816) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fe965e", "#fec86a", ((this.value/1000-(0.4893322392040209))/0.037696173966560664)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fe965e", "#fec86a", ((this.value/1000-(0.4893322392040209))/0.037696173966560664)));
 	}
 	else if (this.value/1000 >= 0.5270284131705816 && this.value/1000 < 0.602061749923069) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fec86a", "#fed967", ((this.value/1000-(0.5270284131705816))/0.07503333675248747)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fec86a", "#fed967", ((this.value/1000-(0.5270284131705816))/0.07503333675248747)));
 	}
 	else if (this.value/1000 >= 0.602061749923069 && this.value/1000 < 0.6763770643142887) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fed967", "#fec56a", ((this.value/1000-(0.602061749923069))/0.07431531439121963)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fed967", "#fec56a", ((this.value/1000-(0.602061749923069))/0.07431531439121963)));
 	}
 	else if (this.value/1000 >= 0.6763770643142887 && this.value/1000 < 0.7510513898861422) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fec56a", "#fed46a", ((this.value/1000-(0.6763770643142887))/0.0746743255718535)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fec56a", "#fed46a", ((this.value/1000-(0.6763770643142887))/0.0746743255718535)));
 	}
 	else if (this.value/1000 >= 0.7510513898861422 && this.value/1000 < 0.8260847266386296) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fed46a", "#fec46a", ((this.value/1000-(0.7510513898861422))/0.07503333675248747)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fed46a", "#fec46a", ((this.value/1000-(0.7510513898861422))/0.07503333675248747)));
 	}
 	else if (this.value/1000 >= 0.8260847266386296 && this.value/1000 < 0.9158375217971074) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fec46a", "#febe69", ((this.value/1000-(0.8260847266386296))/0.08975279515847778)));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#fec46a", "#febe69", ((this.value/1000-(0.8260847266386296))/0.08975279515847778)));
 	}
 	else if (this.value/1000 >= 0.9158375217971074) {
-		paths = document.getElementById("Russia").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#febe69", "#febe69", 0));
-		}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#febe69", "#febe69", 0));
 	}
 	else {
-		paths = document.getElementById("Russia").querySelectorAll("path");
 		if (this.value/1000 >= 0.44039901528361886) {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#fe965e", ((this.value/1000-(0.44039901528361886))/0.04893322392040206)));
-			}
+		document.getElementById("Russia").setAttribute("fill", interpolateColor("#c0c0c0", "#fe965e", ((this.value/1000-(0.44039901528361886))/0.04893322392040206)));
 		}
 		else {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", "#c0c0c0");
-			}
+			document.getElementById("Russia").setAttribute("fill", "#c0c0c0");
 		}
+	}
+	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
+		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= 0.43153143912196124 && this.value/1000 < 0.505128731151913) {
 		document.getElementById("North_Macedonia").setAttribute("fill", interpolateColor("#fb8355", "#feb868", ((this.value/1000-(0.43153143912196124))/0.0735972920299518)));
@@ -676,71 +653,42 @@ document.getElementById("timeline").oninput = function() {
 		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= -0.42122268950661607 && this.value/1000 < 0.4938968099292236) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.42122268950661607))/0.9151194994358396)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-0.42122268950661607))/0.9151194994358396)));
 	}
 	else if (this.value/1000 >= 0.4938968099292236 && this.value/1000 < 0.5688275720586727) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#fed669", ((this.value/1000-(0.4938968099292236))/0.07493076212944916)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#f2e9e0", "#fed669", ((this.value/1000-(0.4938968099292236))/0.07493076212944916)));
 	}
 	else if (this.value/1000 >= 0.5688275720586727 && this.value/1000 < 0.6380654426094984) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fed669", "#fec269", ((this.value/1000-(0.5688275720586727))/0.06923787055082564)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#fed669", "#fec269", ((this.value/1000-(0.5688275720586727))/0.06923787055082564)));
 	}
 	else if (this.value/1000 >= 0.6380654426094984 && this.value/1000 < 0.6983793209559955) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fec269", "#febc69", ((this.value/1000-(0.6380654426094984))/0.06031387834649715)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#fec269", "#febc69", ((this.value/1000-(0.6380654426094984))/0.06031387834649715)));
 	}
 	else if (this.value/1000 >= 0.6983793209559955 && this.value/1000 < 0.7500769309672787) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#febc69", "#feb968", ((this.value/1000-(0.6983793209559955))/0.051697610011283146)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#febc69", "#feb968", ((this.value/1000-(0.6983793209559955))/0.051697610011283146)));
 	}
 	else if (this.value/1000 >= 0.7500769309672787 && this.value/1000 < 0.8219817417170991) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#feb968", "#fec269", ((this.value/1000-(0.7500769309672787))/0.07190481074982047)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#feb968", "#fec269", ((this.value/1000-(0.7500769309672787))/0.07190481074982047)));
 	}
 	else if (this.value/1000 >= 0.8219817417170991 && this.value/1000 < 0.8923479331213457) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fec269", "#fe9c61", ((this.value/1000-(0.8219817417170991))/0.0703661914042466)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#fec269", "#fe9c61", ((this.value/1000-(0.8219817417170991))/0.0703661914042466)));
 	}
 	else if (this.value/1000 >= 0.8923479331213457 && this.value/1000 < 0.9666119602010462) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fe9c61", "#f3764d", ((this.value/1000-(0.8923479331213457))/0.07426402707970048)));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#fe9c61", "#f3764d", ((this.value/1000-(0.8923479331213457))/0.07426402707970048)));
 	}
 	else if (this.value/1000 >= 0.9666119602010462) {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f3764d", "#f3764d", 0));
-		}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#f3764d", "#f3764d", 0));
 	}
 	else {
-		paths = document.getElementById("Danish_Kingdom").querySelectorAll("path");
 		if (this.value/1000 >= -0.37910042055595444) {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.37910042055595444))/-0.04212226895066162)));
-			}
+		document.getElementById("Danish_Kingdom").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-0.37910042055595444))/-0.04212226895066162)));
 		}
 		else {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", "#c0c0c0");
-			}
+			document.getElementById("Danish_Kingdom").setAttribute("fill", "#c0c0c0");
 		}
+	}
+	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
+		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= 0.15904195302082264 && this.value/1000 < 0.8979895373884501) {
 		document.getElementById("Portugal").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.15904195302082264))/0.7389475843676274)));
@@ -1212,77 +1160,45 @@ document.getElementById("timeline").oninput = function() {
 		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= -1.2704892809518924 && this.value/1000 < 0.38301364242486413) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-1.2704892809518924))/1.6535029233767564)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(-1.2704892809518924))/1.6535029233767564)));
 	}
 	else if (this.value/1000 >= 0.38301364242486413 && this.value/1000 < 0.4579444045543133) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.38301364242486413))/0.07493076212944916)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#f2e9e0", "#f2e9e0", ((this.value/1000-(0.38301364242486413))/0.07493076212944916)));
 	}
 	else if (this.value/1000 >= 0.4579444045543133 && this.value/1000 < 0.5527233562416658) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#f2e9e0", "#fee893", ((this.value/1000-(0.4579444045543133))/0.09477895168735251)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#f2e9e0", "#fee893", ((this.value/1000-(0.4579444045543133))/0.09477895168735251)));
 	}
 	else if (this.value/1000 >= 0.5527233562416658 && this.value/1000 < 0.6295517488973228) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fee893", "#fedb67", ((this.value/1000-(0.5527233562416658))/0.076828392655657)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fee893", "#fedb67", ((this.value/1000-(0.5527233562416658))/0.076828392655657)));
 	}
 	else if (this.value/1000 >= 0.6295517488973228 && this.value/1000 < 0.7027900297466407) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fedb67", "#feca6a", ((this.value/1000-(0.6295517488973228))/0.07323828084931794)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fedb67", "#feca6a", ((this.value/1000-(0.6295517488973228))/0.07323828084931794)));
 	}
 	else if (this.value/1000 >= 0.7027900297466407 && this.value/1000 < 0.7964919478920915) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#feca6a", "#fea263", ((this.value/1000-(0.7027900297466407))/0.09370191814545081)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#feca6a", "#fea263", ((this.value/1000-(0.7027900297466407))/0.09370191814545081)));
 	}
 	else if (this.value/1000 >= 0.7964919478920915 && this.value/1000 < 0.8901938660375424) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fea263", "#fe9a60", ((this.value/1000-(0.7964919478920915))/0.09370191814545081)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fea263", "#fe9a60", ((this.value/1000-(0.7964919478920915))/0.09370191814545081)));
 	}
 	else if (this.value/1000 >= 0.8901938660375424 && this.value/1000 < 0.9293260847266386) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fe9a60", "#fedc67", ((this.value/1000-(0.8901938660375424))/0.03913221868909622)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fe9a60", "#fedc67", ((this.value/1000-(0.8901938660375424))/0.03913221868909622)));
 	}
 	else if (this.value/1000 >= 0.9293260847266386 && this.value/1000 < 0.976356549389681) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fedc67", "#fef2bf", ((this.value/1000-(0.9293260847266386))/0.04703046466304239)));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fedc67", "#fef2bf", ((this.value/1000-(0.9293260847266386))/0.04703046466304239)));
 	}
 	else if (this.value/1000 >= 0.976356549389681) {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
-		for (i = 0; i < paths.length; i++) {
-			paths[i].setAttribute("fill", interpolateColor("#fef2bf", "#fef2bf", 0));
-		}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#fef2bf", "#fef2bf", 0));
 	}
 	else {
-		paths = document.getElementById("United_Kingdom").querySelectorAll("path");
 		if (this.value/1000 >= -1.1434403528567032) {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-1.1434403528567032))/-0.1270489280951892)));
-			}
+		document.getElementById("United_Kingdom").setAttribute("fill", interpolateColor("#c0c0c0", "#f2e9e0", ((this.value/1000-(-1.1434403528567032))/-0.1270489280951892)));
 		}
 		else {
-			for (i = 0; i < paths.length; i++) {
-				paths[i].setAttribute("fill", "#c0c0c0");
-			}
+			document.getElementById("United_Kingdom").setAttribute("fill", "#c0c0c0");
 		}
+	}
+	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
+		countryClick(selectedCountry)
 	}
 	if (this.value/1000 >= 0.6997127910554929 && this.value/1000 < 0.8820904708175198) {
 		document.getElementById("Moldova").setAttribute("fill", interpolateColor("#fedc67", "#fe9f62", ((this.value/1000-(0.6997127910554929))/0.1823776797620269)));
@@ -1359,6 +1275,46 @@ document.getElementById("timeline").oninput = function() {
 	}
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
+	}
+	if (this.value/1000 < 0.44312237152528466) {
+		document.getElementById("Slovenia").style.display = "none";
+		document.getElementById("Croatia").style.display = "none";
+		document.getElementById("Yugoslavia2").style.display = "none";
+	}
+	else {
+		document.getElementById("Slovenia").style.display = "block";
+		document.getElementById("Croatia").style.display = "block";
+		document.getElementById("Yugoslavia2").style.display = "block";
+	}
+	if (this.value/1000 < 0.4469689198892194) {
+		document.getElementById("North_Macedonia").style.display = "none";
+		document.getElementById("Yugoslavia3").style.display = "none";
+	}
+	else {
+		document.getElementById("North_Macedonia").style.display = "block";
+		document.getElementById("Yugoslavia3").style.display = "block";
+	}
+	if (this.value/1000 < 0.4559441994050672) {
+		document.getElementById("Bosnia_and_Herzegovina").style.display = "none";
+		document.getElementById("Yugoslavia4").style.display = "none";
+	}
+	else {
+		document.getElementById("Bosnia_and_Herzegovina").style.display = "block";
+		document.getElementById("Yugoslavia4").style.display = "block";
+	}
+	if (this.value/1000 < 0.7223304954354293) {
+		document.getElementById("Montenegro").style.display = "none";
+		document.getElementById("Serbia").style.display = "none";
+	}
+	else {
+		document.getElementById("Montenegro").style.display = "block";
+		document.getElementById("Serbia").style.display = "block";
+	}
+	if (this.value/1000 < 0.7550005128731152) {
+		document.getElementById("Kosovo").style.display = "none";
+	}
+	else {
+		document.getElementById("Kosovo").style.display = "block";
 	}
 }
 
