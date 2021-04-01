@@ -39,7 +39,7 @@ $("body").animate({opacity: "1"}, 500, "easeInOutSine" /*"easeOutSine"*/ /*"ease
         clearInterval(interval);
     });
 });
-interval = setInterval(updateMap,50);
+interval = setInterval(updateMap,100);
 
 document.getElementById('Spain').addEventListener('click', function(e) {
     e.currentTarget.setAttribute('fill', '#ff00cc');
