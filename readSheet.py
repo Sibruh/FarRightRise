@@ -204,35 +204,41 @@ print("}")'''
 
 # Generate JavaScript code, for changing the colors only (bodyscript_py.js)
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
-colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), filter(lambda x: x[1], data_colored)))
+colormap = list(map(lambda x: (x[0].replace(" ", "_"), list(map(lambda y: (y[0], y[4]), x[1]))), data_colored))
+
+'''for x in colormap:
+    print(x[0])
+    for y in x[1]:
+        print(y)'''
 
 # Define democratisation date for each country (country will be colored grey before democratisation date)
 democratisationDates = {
-                        #'Ukraine',
-                        #'Russia',
-                        #'North_Macedonia',
-                        #'Bulgaria',
-                        #'Lithuania',
-                        #'Latvia',
-                        #'Estonia',
+                        #'Ukraine': 'ALREADY CORRECTLY ALIGNED',
+                        #'Russia': 'ALREADY CORRECTLY ALIGNED',
+                        #'North_Macedonia': 'ALREADY CORRECTLY ALIGNED',
+                        'Bulgaria': '1-10-1991',
+                        'Lithuania': '1-1-1991', # arbitrary date
+                        'Latvia': '1-1-1992', # arbitrary date
+                        'Estonia': '1-1-1992', # arbitrary date
                         'Greece': '12-10-1944',
-                        #'Cyprus',
+                        'Cyprus': '1-8-1960',
                         'Turkey': '1-5-1950',
-                        #'Croatia',
-                        #'Romania',
-                        #'Serbia',
+                        #'Croatia': 'ALREADY CORRECTLY ALIGNED',
+                        #'Romania': 'ALREADY CORRECTLY ALIGNED',
+                        #'Serbia': 'ALREADY CORRECTLY ALIGNED',
                         'Finland': '6-12-1917',
-                        #'Slovakia': '1-1-1945',
+                        #'Slovakia': 'ALREADY CORRECTLY ALIGNED',
                         'Luxembourg': '10-9-1944',
                         'Norway': '9-5-1945',
-                        #'Slovenia': '9-5-1945',
-                        #'Czech_Republic': '9-5-1945',
+                        #'Slovenia': 'ALREADY CORRECTLY ALIGNED',
+                        'Czech_Republic': '1-12-1989',
+                        'Czechoslovakia': '1-12-1989',
                         'Danish_Kingdom': '4-5-1945',
                         'Portugal': '25-4-1976',
                         'Poland': '1-1-1991',
                         #'Spain': 'ALREADY CORRECTLY ALIGNED',
                         'Italy': '1-1-1945',
-                        #'Hungary',
+                        #'Hungary': 'ALREADY CORRECTLY ALIGNED',
                         'Switzerland': '1-1-1900',
                         'France': '25-8-1944',
                         #'Germany': 'ALREADY CORRECTLY ALIGNED',
@@ -241,15 +247,15 @@ democratisationDates = {
                         'Sweden': '1-1-1900',
                         'United_Kingdom': '1-1-1900',
                         'Ireland': '11-7-1921',
-                        #'Bosnia_and_Herzegovina',
+                        'Bosnia_and_Herzegovina': '1-1-1993', # arbitrary date
                         'Iceland': '17-6-1944',
-                        #'Moldova',
+                        'Moldova': '27-2-1994',
                         'Malta': '18-9-1964',
                         'Austria': '9-5-1945',
-                        #'Belarus',
-                        'Albania': '29-11-1944',
-                        #'Kosovo',
-                        #'Montenegro'
+                        #'Belarus': 'INTENTIONALLY LEFT EMPTY',
+                        'Albania': '22-3-1992',
+                        'Kosovo': '1-1-1995', # arbitrary date
+                        #'Montenegro': 'ALREADY CORRECTLY ALIGNED'
                         }
 
 # Define independence date for country (country will be transparent before democratisation date)
@@ -270,9 +276,20 @@ independenceDates = {
 fourYearInterval = 1461/dateRangeDays
 for country in colormap:
     if country[0] in democratisationDates:
-        nextKeyPos = country[1][0][0]
-        country[1].insert(0, (nextKeyPos-fourYearInterval, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
-        country[1].insert(0, (((datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+        if datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") >= dateRangeMin:
+            if country[1]:
+                nextKeyPos = country[1][0][0]
+                country[1].insert(0, (nextKeyPos-fourYearInterval, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+                country[1].insert(0, (((datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+            else:
+                country[1].insert(0, (((datetime.datetime.strptime(democratisationDates.get(country[0]), "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+        else:
+            country[1].insert(0, (0, matplotlib.colors.to_hex(colorMapper.to_rgba(0))))
+
+# Make countries that are still undefined grey
+for country in colormap:
+    if not country[1]:
+        country[1].append((0, '#c0c0c0'))
 
 # Convert independenceDates dict to list where date is converted to slider position
 independenceDatesList = []
@@ -280,10 +297,10 @@ for date in independenceDates.keys():
     independenceDatesList.append((str(((datetime.datetime.strptime(date, "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays),independenceDates.get(date)))
 
 # Test print
-for x in colormap:
+'''for x in colormap:
     print(x[0])
     for y in x[1]:
-        print(y)
+        print(y)'''
 
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
@@ -296,26 +313,45 @@ for subset in colormap:
     for i in range(0, len(subset[1])):
         content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
         if subset[0] == "Yugoslavia":
-            content += ("\t\tdocument.getElementById(\"" + Yugoslavia1 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            content += ("\t\tdocument.getElementById(\"" + Yugoslavia2 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            content += ("\t\tdocument.getElementById(\"" + Yugoslavia3 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            content += ("\t\tdocument.getElementById(\"" + Yugoslavia4 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"Yugoslavia1\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"Yugoslavia2\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"Yugoslavia3\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"Yugoslavia4\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
         elif subset[0] == "USSR":
-            content += ("\t\tdocument.getElementById(\"" + USSR1 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-            content += ("\t\tdocument.getElementById(\"" + USSR2 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"USSR1\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"USSR2\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
         else:
+            # Uncomment to disable interpolation:
+            #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
             content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
-        # Uncomment to disable interpolation:
-        #content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + str(0) + "));\n")
         content += ("\t}\n")
     content += ("\telse {\n")
+    #print(subset[1])
     content += ("\t\tif (this.value/1000 >= " + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ") {\n")
-    # Uncomment to disable interpolation:
-    #content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
-    content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+    if subset[0] == "Yugoslavia":
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia1\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia2\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia3\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia4\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+    elif subset[0] == "USSR":
+        content += ("\t\t\tdocument.getElementById(\"USSR1\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+        content += ("\t\t\tdocument.getElementById(\"USSR2\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
+    else:
+        # Uncomment to disable interpolation:
+        #content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"#c0c0c0\", \"" + (str(subset[1][0][1])) + "\", " + ("((this.value/1000-(" + str(subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + "))/" + str(subset[1][0][0]-subset[1][0][0]*(1-undefinedToDefinedTransitionLength)) + ")") + "));\n")
     content += ("\t\t}\n")
     content += ("\t\telse {\n")
-    content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+    if subset[0] == "Yugoslavia":
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia1\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia2\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia3\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\tdocument.getElementById(\"Yugoslavia4\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+    elif subset[0] == "USSR":
+        content += ("\t\t\tdocument.getElementById(\"USSR1\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+        content += ("\t\t\tdocument.getElementById(\"USSR2\").setAttribute(\"fill\", \"#c0c0c0\");\n")
+    else:
+        content += ("\t\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", \"#c0c0c0\");\n")
     content += ("\t\t}\n")
     content += ("\t}\n")
     content += ("\tif (typeof selectedCountry != 'undefined' && selectedCountry != \"\") {\n")
@@ -356,7 +392,9 @@ print(content)'''
 # Create list of countries and parties
 countriesList = list(map(lambda x: x[0].replace(" ", "_"), data_colored))
 partiesList = list(data_parties.keys())
-electionDataMap = list(filter(lambda x: x[1], map(lambda x: (x[0].replace(" ", "_"), x[1]), data_colored)))
+# Uncomment to remove all countries without spreadsheet entry from list:
+#electionDataMap = list(filter(lambda x: x[1], map(lambda x: (x[0].replace(" ", "_"), x[1]), data_colored)))
+electionDataMap = list(map(lambda x: (x[0].replace(" ", "_"), x[1]), data_colored))
 
 # Check if .htm files for all countries and partie exist, and create them if this is not yet the case
 countryDir = "textpages//countries//"
@@ -392,34 +430,43 @@ else:
     content += ("function countryClick(country) {\n")
     content += ("\tselectedCountry = country;\n")
     for i, country in enumerate(electionDataMap):
-        content += ("\t" + ("" if i == 0 else "else ") + "if (country == \"" + country[0] + "\") {\n")
-        for i, election in enumerate(country[1]):
-            content += ("\t\t" + ("" if i == 0 else "else ") + "if (document.getElementById(\"timeline\").value/1000 >= " + str(election[0]) + ((" && document.getElementById(\"timeline\").value/1000 < " + str(country[1][i+1][0])) if i < len(country[1])-1 else "") + ") {\n")
+        if country[1]:
+            content += ("\t" + ("" if i == 0 else "else ") + "if (country == \"" + country[0] + "\") {\n")
+            for i, election in enumerate(country[1]):
+                content += ("\t\t" + ("" if i == 0 else "else ") + "if (document.getElementById(\"timeline\").value/1000 >= " + str(election[0]) + ((" && document.getElementById(\"timeline\").value/1000 < " + str(country[1][i+1][0])) if i < len(country[1])-1 else "") + ") {\n")
+                content += ("\t\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
+                # Add .htm file contents to content
+                f = open(countryDir + country[0] + ".htm", "r")
+                content += f.read().replace("\n", "\\n")
+                f.close()
+                content += "<h2>Latest election</h2>\\n"
+                content += "<p>At this time, the most recent election in which at least one far-right party participated was held at " + election[1].strftime("%A %d %B %Y") + ".<\p>\\n"
+                content += "<ul>\\n"
+                for party in election[2]:
+                    content += "\t<li>" + data_parties.get(party[0])[0] + " (" + data_parties.get(party[0])[1] + ") received " + str(party[1]) + "% of the votes</li>\\n"
+                content += "</ul>\\n"
+                content += "<h2>Parties</h2>\\n"
+                for party in election[2]:
+                    f = open(partyDir + party[0] + ".htm", "r")
+                    content += f.read().replace("\n", "\\n")
+                    f.close()
+                content += ("\";\n\t\t}\n")
+            content += ("\t\telse {\n")
             content += ("\t\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
             # Add .htm file contents to content
             f = open(countryDir + country[0] + ".htm", "r")
             content += f.read().replace("\n", "\\n")
             f.close()
-            content += "<h2>Latest election</h2>\\n"
-            content += "<p>At this time, the most recent election in which at least one far-right party participated was held at " + election[1].strftime("%A %d %B %Y") + ".<\p>\\n"
-            content += "<ul>\\n"
-            for party in election[2]:
-                content += "\t<li>" + data_parties.get(party[0])[0] + " (" + data_parties.get(party[0])[1] + ") received " + str(party[1]) + "% of the votes</li>\\n"
-            content += "</ul>\\n"
-            content += "<h2>Parties</h2>\\n"
-            for party in election[2]:
-                f = open(partyDir + party[0] + ".htm", "r")
-                content += f.read().replace("\n", "\\n")
-                f.close()
             content += ("\";\n\t\t}\n")
-        content += ("\t\telse {\n")
-        content += ("\t\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
-        # Add .htm file contents to content
-        f = open(countryDir + country[0] + ".htm", "r")
-        content += f.read().replace("\n", "\\n")
-        f.close()
-        content += ("\";\n\t\t}\n")
-        content += ("\t}\n")
+            content += ("\t}\n")
+        else:
+            content += ("\t" + ("" if i == 0 else "else ") + "if (country == \"" + country[0] + "\") {\n")
+            content += ("\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
+            # Add .htm file contents to content
+            f = open(countryDir + country[0] + ".htm", "r")
+            content += f.read().replace("\n", "\\n")
+            f.close()
+            content += ("\";\n\t}\n")
     content += ("\telse {\n")
     content += ("\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
     content += "<p>Unfortunately, there is no data available for this country at this time.</p>"

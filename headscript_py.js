@@ -54,41 +54,6 @@ function countryClick(country) {
 			document.getElementById("textbox").innerHTML = "<h1>Russia</h1>\n<p>Lorem ipsum et cetera Russia</p>\n";
 		}
 	}
-	else if (country == "North_Macedonia") {
-		if (document.getElementById("timeline").value/1000 >= 0.43153143912196124 && document.getElementById("timeline").value/1000 < 0.505128731151913) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 November 1990.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 30.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.505128731151913 && document.getElementById("timeline").value/1000 < 0.5801620679044005) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 16 October 1994.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 14.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.5801620679044005 && document.getElementById("timeline").value/1000 < 0.6534003487537183) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 18 October 1998.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 28.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6534003487537183 && document.getElementById("timeline").value/1000 < 0.7246384244537901) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 15 September 2002.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 25.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7246384244537901 && document.getElementById("timeline").value/1000 < 0.7603856805826239) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Wednesday 05 July 2006.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 32.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7603856805826239 && document.getElementById("timeline").value/1000 < 0.8167504359421479) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 01 June 2008.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 48.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8167504359421479 && document.getElementById("timeline").value/1000 < 0.8702431018566007) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 05 June 2011.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 40.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8702431018566007 && document.getElementById("timeline").value/1000 < 0.9201456559647143) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 13 April 2014.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 43.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.9201456559647143 && document.getElementById("timeline").value/1000 < 0.9874346086778131) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 December 2016.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 38.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.9874346086778131) {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Wednesday 15 July 2020.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 34.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
-		}
-		else {
-			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n";
-		}
-	}
 	else if (country == "Bulgaria") {
 		if (document.getElementById("timeline").value/1000 >= 0.7054056826341163 && document.getElementById("timeline").value/1000 < 0.7808493178787568) {
 			document.getElementById("textbox").innerHTML = "<h1>Bulgaria</h1>\n<p>Lorem ipsum et cetera Bulgaria</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 25 June 2005.<\p>\n<ul>\n	<li>Attack (Ataka) received 8.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Attack</h3>\n<p>Lorem ipsum et cetera Attack</p>\n";
@@ -247,35 +212,6 @@ function countryClick(country) {
 			document.getElementById("textbox").innerHTML = "<h1>Turkey</h1>\n<p>Lorem ipsum et cetera Turkey</p>\n";
 		}
 	}
-	else if (country == "Croatia") {
-		if (document.getElementById("timeline").value/1000 >= 0.46384244537901326 && document.getElementById("timeline").value/1000 < 0.5245153349061442) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 02 August 1992.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 7.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.5245153349061442 && document.getElementById("timeline").value/1000 < 0.602831059595856) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 29 October 1995.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.602831059595856 && document.getElementById("timeline").value/1000 < 0.6756590419530208) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Monday 03 January 2000.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6756590419530208 && document.getElementById("timeline").value/1000 < 0.7506923787055083) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 23 November 2003.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 6.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7506923787055083 && document.getElementById("timeline").value/1000 < 0.7898245973946045) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 25 November 2007.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 3.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7898245973946045 && document.getElementById("timeline").value/1000 < 0.8835265155400553) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 27 December 2009.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8835265155400553 && document.getElementById("timeline").value/1000 < 0.9804082469996923) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 December 2014.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 6.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.9804082469996923) {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 29 February 2020.<\p>\n<ul>\n	<li>Homeland Movement (DP) received 10.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Homeland Movement</h3>\n<p>Lorem ipsum et cetera Homeland Movement</p>\n";
-		}
-		else {
-			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n";
-		}
-	}
 	else if (country == "Romania") {
 		if (document.getElementById("timeline").value/1000 >= 0.46671453482408454 && document.getElementById("timeline").value/1000 < 0.5435429274797415) {
 			document.getElementById("textbox").innerHTML = "<h1>Romania</h1>\n<p>Lorem ipsum et cetera Romania</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 27 September 1992.<\p>\n<ul>\n	<li>Greater Romania Party (PRM) received 3.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Greater Romania Party</h3>\n<p>Lorem ipsum et cetera Greater Romania Party</p>\n";
@@ -303,41 +239,6 @@ function countryClick(country) {
 		}
 		else {
 			document.getElementById("textbox").innerHTML = "<h1>Romania</h1>\n<p>Lorem ipsum et cetera Romania</p>\n";
-		}
-	}
-	else if (country == "Serbia") {
-		if (document.getElementById("timeline").value/1000 >= 0.47102266899169143 && document.getElementById("timeline").value/1000 < 0.564622012514104) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 20 December 1992.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 22.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.564622012514104 && document.getElementById("timeline").value/1000 < 0.6210380551851472) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Friday 19 December 1997.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 13.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6210380551851472 && document.getElementById("timeline").value/1000 < 0.6774540978561904) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 23 December 2000.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 28.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6774540978561904 && document.getElementById("timeline").value/1000 < 0.7348958867576162) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 December 2003.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 8.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7348958867576162 && document.getElementById("timeline").value/1000 < 0.7593086470407221) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 January 2007.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 27.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7593086470407221 && document.getElementById("timeline").value/1000 < 0.8339829726125757) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 May 2008.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 29.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8339829726125757 && document.getElementById("timeline").value/1000 < 0.868807057134065) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 May 2012.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 4.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.868807057134065 && document.getElementById("timeline").value/1000 < 0.9082982870037952) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 16 March 2014.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 2.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.9082982870037952 && document.getElementById("timeline").value/1000 < 0.986203713201354) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 24 April 2016.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 8.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.986203713201354) {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 June 2020.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 2.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
-		}
-		else {
-			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n";
 		}
 	}
 	else if (country == "Finland") {
@@ -463,38 +364,6 @@ function countryClick(country) {
 		}
 		else {
 			document.getElementById("textbox").innerHTML = "<h1>Norway</h1>\n<p>Lorem ipsum et cetera Norway</p>\n";
-		}
-	}
-	else if (country == "Slovenia") {
-		if (document.getElementById("timeline").value/1000 >= 0.42040209252231 && document.getElementById("timeline").value/1000 < 0.47030464663042365) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 08 April 1990.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 7.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.47030464663042365 && document.getElementById("timeline").value/1000 < 0.5439019386603754) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 December 1992.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 3.3% of the votes</li>\n	<li>Slovenian National Party (SNS) received 10.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.5439019386603754 && document.getElementById("timeline").value/1000 < 0.6174992306903272) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 10 November 1996.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 16.3% of the votes</li>\n	<li>Slovenian National Party (SNS) received 3.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6174992306903272 && document.getElementById("timeline").value/1000 < 0.6918145450815468) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 15 October 2000.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 15.8% of the votes</li>\n	<li>Slovenian National Party (SNS) received 4.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.6918145450815468 && document.getElementById("timeline").value/1000 < 0.7661298594727665) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 October 2004.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 29.0% of the votes</li>\n	<li>Slovenian National Party (SNS) received 6.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.7661298594727665 && document.getElementById("timeline").value/1000 < 0.8260847266386296) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 September 2008.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 29.2% of the votes</li>\n	<li>Slovenian National Party (SNS) received 5.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8260847266386296 && document.getElementById("timeline").value/1000 < 0.8749102472048416) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 04 December 2011.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 26.1% of the votes</li>\n	<li>Slovenian National Party (SNS) received 1.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.8749102472048416 && document.getElementById("timeline").value/1000 < 0.9477895168735255) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 13 July 2014.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 20.7% of the votes</li>\n	<li>Slovenian National Party (SNS) received 2.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else if (document.getElementById("timeline").value/1000 >= 0.9477895168735255) {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 June 2018.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 24.9% of the votes</li>\n	<li>Slovenian National Party (SNS) received 4.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
-		}
-		else {
-			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n";
 		}
 	}
 	else if (country == "Czech_Republic") {
@@ -784,6 +653,44 @@ function countryClick(country) {
 			document.getElementById("textbox").innerHTML = "<h1>Germany</h1>\n<p>Lorem ipsum et cetera Germany</p>\n";
 		}
 	}
+	else if (country == "BRD") {
+		if (document.getElementById("timeline").value/1000 >= -0.3410606216022156 && document.getElementById("timeline").value/1000 < -0.26495025130782646) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 14 August 1949.<\p>\n<ul>\n	<li>German Party (DP) received 4.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>German Party</h3>\n<p>Lorem ipsum et cetera German Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= -0.26495025130782646 && document.getElementById("timeline").value/1000 < -0.1895579033747051) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 September 1953.<\p>\n<ul>\n	<li>German Party (DP) received 4.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>German Party</h3>\n<p>Lorem ipsum et cetera German Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= -0.1895579033747051 && document.getElementById("timeline").value/1000 < -0.03949122986973023) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 15 September 1957.<\p>\n<ul>\n	<li>German Party (DP) received 3.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>German Party</h3>\n<p>Lorem ipsum et cetera German Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= -0.03949122986973023 && document.getElementById("timeline").value/1000 < 0.035901118063391114) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 19 September 1965.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 2.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.035901118063391114 && document.getElementById("timeline").value/1000 < 0.09477895168735255) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 September 1969.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 4.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.09477895168735255 && document.getElementById("timeline").value/1000 < 0.1672992101754026) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 19 November 1972.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 0.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.1672992101754026 && document.getElementById("timeline").value/1000 < 0.24233254692789005) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 October 1976.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 0.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.24233254692789005 && document.getElementById("timeline").value/1000 < 0.28756795568776283) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 05 October 1980.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 0.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.28756795568776283 && document.getElementById("timeline").value/1000 < 0.3604472253564468) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 March 1983.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 0.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.3604472253564468) {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 25 January 1987.<\p>\n<ul>\n	<li>National Democratic Party of Germany (NPD) received 0.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>National Democratic Party of Germany</h3>\n<p>Lorem ipsum et cetera National Democratic Party of Germany</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>BRD</h1>\n<p>Lorem ipsum et cetera BRD</p>\n";
+		}
+	}
+	else if (country == "DDR") {
+		document.getElementById("textbox").innerHTML = "<h1>DDR</h1>\n<p>Lorem ipsum et cetera DDR</p>\n";
+	}
 	else if (country == "The_Netherlands") {
 		if (document.getElementById("timeline").value/1000 >= 0.3476766847881834 && document.getElementById("timeline").value/1000 < 0.40942660785721613) {
 			document.getElementById("textbox").innerHTML = "<h1>The Netherlands</h1>\n<p>Lorem ipsum et cetera The Netherlands</p><h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Wednesday 21 May 1986.<\p>\n<ul>\n	<li>Centre Democrats (CD) received 0.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Centre Democrats</h3>\n<p>Lorem ipsum et cetera Centre Democrats</p>\n";
@@ -918,6 +825,12 @@ function countryClick(country) {
 			document.getElementById("textbox").innerHTML = "<h1>United_Kingdom</h1>\n<p>Lorem ipsum et cetera United_Kingdom</p>\n";
 		}
 	}
+	else if (country == "Ireland") {
+		document.getElementById("textbox").innerHTML = "<h1>Ireland</h1>\n<p>Lorem ipsum et cetera Ireland</p>\n";
+	}
+	else if (country == "Iceland") {
+		document.getElementById("textbox").innerHTML = "<h1>Iceland</h1>\n<p>Lorem ipsum et cetera Iceland</p>\n";
+	}
 	else if (country == "Moldova") {
 		if (document.getElementById("timeline").value/1000 >= 0.6997127910554929 && document.getElementById("timeline").value/1000 < 0.8820904708175198) {
 			document.getElementById("textbox").innerHTML = "<h1>Moldova</h1>\n<p>Lorem ipsum et cetera Moldova</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 March 2005.<\p>\n<ul>\n	<li>Party of Socialists of the Republic of Moldova (PSRM) received 5.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Socialists of the Republic of Moldova</h3>\n<p>Lorem ipsum et cetera Party of Socialists of the Republic of Moldova</p>\n";
@@ -931,6 +844,9 @@ function countryClick(country) {
 		else {
 			document.getElementById("textbox").innerHTML = "<h1>Moldova</h1>\n<p>Lorem ipsum et cetera Moldova</p>\n";
 		}
+	}
+	else if (country == "Malta") {
+		document.getElementById("textbox").innerHTML = "<h1>Malta</h1>\n<p>Lorem ipsum et cetera Malta</p>\n";
 	}
 	else if (country == "Austria") {
 		if (document.getElementById("timeline").value/1000 >= 0.04379936403733716 && document.getElementById("timeline").value/1000 < 0.23515232331521183) {
@@ -975,6 +891,204 @@ function countryClick(country) {
 		else {
 			document.getElementById("textbox").innerHTML = "<h1>Austria</h1>\n<p>Lorem ipsum et cetera Austria</p>\n";
 		}
+	}
+	else if (country == "Belarus") {
+		document.getElementById("textbox").innerHTML = "<h1>Belarus</h1>\n<p>Lorem ipsum et cetera Belarus</p>\n";
+	}
+	else if (country == "Albania") {
+		document.getElementById("textbox").innerHTML = "<h1>Albania</h1>\n<p>Lorem ipsum et cetera Albania</p>\n";
+	}
+	else if (country == "Yugoslavia") {
+		if (document.getElementById("timeline").value/1000 >= 0.47102266899169143 && document.getElementById("timeline").value/1000 < 0.564622012514104) {
+			document.getElementById("textbox").innerHTML = "<h1>Yugoslavia</h1>\n<p>Lorem ipsum et cetera Yugoslavia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 20 December 1992.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 22.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.564622012514104 && document.getElementById("timeline").value/1000 < 0.6210380551851472) {
+			document.getElementById("textbox").innerHTML = "<h1>Yugoslavia</h1>\n<p>Lorem ipsum et cetera Yugoslavia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Friday 19 December 1997.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 13.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6210380551851472 && document.getElementById("timeline").value/1000 < 0.6774540978561904) {
+			document.getElementById("textbox").innerHTML = "<h1>Yugoslavia</h1>\n<p>Lorem ipsum et cetera Yugoslavia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 23 December 2000.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 28.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6774540978561904) {
+			document.getElementById("textbox").innerHTML = "<h1>Yugoslavia</h1>\n<p>Lorem ipsum et cetera Yugoslavia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 December 2003.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 8.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Yugoslavia</h1>\n<p>Lorem ipsum et cetera Yugoslavia</p>\n";
+		}
+	}
+	else if (country == "Serbia") {
+		if (document.getElementById("timeline").value/1000 >= 0.47102266899169143 && document.getElementById("timeline").value/1000 < 0.564622012514104) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 20 December 1992.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 22.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.564622012514104 && document.getElementById("timeline").value/1000 < 0.6210380551851472) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Friday 19 December 1997.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 13.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6210380551851472 && document.getElementById("timeline").value/1000 < 0.6774540978561904) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 23 December 2000.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 28.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6774540978561904 && document.getElementById("timeline").value/1000 < 0.7348958867576162) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 December 2003.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 8.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7348958867576162 && document.getElementById("timeline").value/1000 < 0.7593086470407221) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 January 2007.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 27.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7593086470407221 && document.getElementById("timeline").value/1000 < 0.8339829726125757) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 May 2008.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 29.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8339829726125757 && document.getElementById("timeline").value/1000 < 0.868807057134065) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 May 2012.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 4.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.868807057134065 && document.getElementById("timeline").value/1000 < 0.9082982870037952) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 16 March 2014.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 2.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9082982870037952 && document.getElementById("timeline").value/1000 < 0.986203713201354) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 24 April 2016.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 8.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.986203713201354) {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 June 2020.<\p>\n<ul>\n	<li>Serbian Radical Party (CPC) received 2.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Serbian Radical Party</h3>\n<p>Lorem ipsum et cetera Serbian Radical Party</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Serbia</h1>\n<p>Lorem ipsum et cetera Serbia</p>\n";
+		}
+	}
+	else if (country == "Montenegro") {
+		if (document.getElementById("timeline").value/1000 >= 0.47102266899169143 && document.getElementById("timeline").value/1000 < 0.5435429274797415) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 20 December 1992.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 7.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5435429274797415 && document.getElementById("timeline").value/1000 < 0.5729818442917223) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 November 1996.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 4.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5729818442917223 && document.getElementById("timeline").value/1000 < 0.6271925325674428) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 31 May 1998.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 1.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6271925325674428 && document.getElementById("timeline").value/1000 < 0.6551954046568879) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 22 April 2001.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 1.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6551954046568879 && document.getElementById("timeline").value/1000 < 0.7280746743255718) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 20 October 2002.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 2.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7280746743255718 && document.getElementById("timeline").value/1000 < 0.775823161349882) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 10 September 2006.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 14.7% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.775823161349882 && document.getElementById("timeline").value/1000 < 0.8422402297671556) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 29 March 2009.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 1.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8422402297671556 && document.getElementById("timeline").value/1000 < 0.9172735665196431) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 14 October 2012.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 0.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9172735665196431) {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 16 October 2016.<\p>\n<ul>\n	<li>Party of Serb Radicals (SSR) received 0.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Party of Serb Radicals</h3>\n<p>Lorem ipsum et cetera Party of Serb Radicals</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Montenegro</h1>\n<p>Lorem ipsum et cetera Montenegro</p>\n";
+		}
+	}
+	else if (country == "Slovenia") {
+		if (document.getElementById("timeline").value/1000 >= 0.42040209252231 && document.getElementById("timeline").value/1000 < 0.47030464663042365) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 08 April 1990.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 7.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.47030464663042365 && document.getElementById("timeline").value/1000 < 0.5439019386603754) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 06 December 1992.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 3.3% of the votes</li>\n	<li>Slovenian National Party (SNS) received 10.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5439019386603754 && document.getElementById("timeline").value/1000 < 0.6174992306903272) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 10 November 1996.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 16.3% of the votes</li>\n	<li>Slovenian National Party (SNS) received 3.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6174992306903272 && document.getElementById("timeline").value/1000 < 0.6918145450815468) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 15 October 2000.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 15.8% of the votes</li>\n	<li>Slovenian National Party (SNS) received 4.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6918145450815468 && document.getElementById("timeline").value/1000 < 0.7661298594727665) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 October 2004.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 29.0% of the votes</li>\n	<li>Slovenian National Party (SNS) received 6.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7661298594727665 && document.getElementById("timeline").value/1000 < 0.8260847266386296) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 21 September 2008.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 29.2% of the votes</li>\n	<li>Slovenian National Party (SNS) received 5.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8260847266386296 && document.getElementById("timeline").value/1000 < 0.8749102472048416) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 04 December 2011.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 26.1% of the votes</li>\n	<li>Slovenian National Party (SNS) received 1.8% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8749102472048416 && document.getElementById("timeline").value/1000 < 0.9477895168735255) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 13 July 2014.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 20.7% of the votes</li>\n	<li>Slovenian National Party (SNS) received 2.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9477895168735255) {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 03 June 2018.<\p>\n<ul>\n	<li>Slovenian Democratic Party (SDS) received 24.9% of the votes</li>\n	<li>Slovenian National Party (SNS) received 4.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Slovenian Democratic Party</h3>\n<p>Lorem ipsum et cetera Slovenian Democratic Party</p>\n<h3>Slovenian National Party</h3>\n<p>Lorem ipsum et cetera Slovenian National Party</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Slovenia</h1>\n<p>Lorem ipsum et cetera Slovenia</p>\n";
+		}
+	}
+	else if (country == "Croatia") {
+		if (document.getElementById("timeline").value/1000 >= 0.46384244537901326 && document.getElementById("timeline").value/1000 < 0.5245153349061442) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 02 August 1992.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 7.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5245153349061442 && document.getElementById("timeline").value/1000 < 0.602831059595856) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 29 October 1995.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.602831059595856 && document.getElementById("timeline").value/1000 < 0.6756590419530208) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Monday 03 January 2000.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.2% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6756590419530208 && document.getElementById("timeline").value/1000 < 0.7506923787055083) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 23 November 2003.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 6.4% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7506923787055083 && document.getElementById("timeline").value/1000 < 0.7898245973946045) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 25 November 2007.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 3.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7898245973946045 && document.getElementById("timeline").value/1000 < 0.8835265155400553) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 27 December 2009.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 5.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8835265155400553 && document.getElementById("timeline").value/1000 < 0.9804082469996923) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 28 December 2014.<\p>\n<ul>\n	<li>Croatian Party of Rights (HSP) received 6.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Croatian Party of Rights</h3>\n<p>Lorem ipsum et cetera Croatian Party of Rights</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9804082469996923) {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Saturday 29 February 2020.<\p>\n<ul>\n	<li>Homeland Movement (DP) received 10.9% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>Homeland Movement</h3>\n<p>Lorem ipsum et cetera Homeland Movement</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>Croatia</h1>\n<p>Lorem ipsum et cetera Croatia</p>\n";
+		}
+	}
+	else if (country == "Bosnia_and_Herzegovina") {
+		document.getElementById("textbox").innerHTML = "<h1>Bosnia_and_Herzegovina</h1>\n<p>Lorem ipsum et cetera Bosnia_and_Herzegovina</p>\n";
+	}
+	else if (country == "North_Macedonia") {
+		if (document.getElementById("timeline").value/1000 >= 0.43153143912196124 && document.getElementById("timeline").value/1000 < 0.505128731151913) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 November 1990.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 30.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.505128731151913 && document.getElementById("timeline").value/1000 < 0.5801620679044005) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 16 October 1994.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 14.3% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.5801620679044005 && document.getElementById("timeline").value/1000 < 0.6534003487537183) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 18 October 1998.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 28.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.6534003487537183 && document.getElementById("timeline").value/1000 < 0.7246384244537901) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 15 September 2002.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 25.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7246384244537901 && document.getElementById("timeline").value/1000 < 0.7603856805826239) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Wednesday 05 July 2006.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 32.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.7603856805826239 && document.getElementById("timeline").value/1000 < 0.8167504359421479) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 01 June 2008.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 48.5% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8167504359421479 && document.getElementById("timeline").value/1000 < 0.8702431018566007) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 05 June 2011.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 40.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.8702431018566007 && document.getElementById("timeline").value/1000 < 0.9201456559647143) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 13 April 2014.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 43.0% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9201456559647143 && document.getElementById("timeline").value/1000 < 0.9874346086778131) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Sunday 11 December 2016.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 38.1% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else if (document.getElementById("timeline").value/1000 >= 0.9874346086778131) {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n<h2>Latest election</h2>\n<p>At this time, the most recent election in which at least one far-right party participated was held at Wednesday 15 July 2020.<\p>\n<ul>\n	<li>International Macedonian Revolutionary Organisation (VMRO-DPMNE) received 34.6% of the votes</li>\n</ul>\n<h2>Parties</h2>\n<h3>International Macedonian Revolutionary Organisation</h3>\n<p>Lorem ipsum et cetera International Macedonian Revolutionary Organisation</p>\n";
+		}
+		else {
+			document.getElementById("textbox").innerHTML = "<h1>North_Macedonia</h1>\n<p>Lorem ipsum et cetera North_Macedonia</p>\n";
+		}
+	}
+	else if (country == "Kosovo") {
+		document.getElementById("textbox").innerHTML = "<h1>Kosovo</h1>\n<p>Lorem ipsum et cetera Kosovo</p>\n";
+	}
+	else if (country == "Czechoslovakia") {
+		document.getElementById("textbox").innerHTML = "<h1>Czechoslovakia</h1>\n<p>Lorem ipsum et cetera Czechoslovakia</p>\n";
+	}
+	else if (country == "USSR") {
+		document.getElementById("textbox").innerHTML = "<h1>USSR</h1>\n<p>Lorem ipsum et cetera USSR</p>\n";
 	}
 	else {
 		document.getElementById("textbox").innerHTML = "<p>Unfortunately, there is no data available for this country at this time.</p>";
