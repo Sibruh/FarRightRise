@@ -40,23 +40,15 @@ h3 {
     position: relative;
 }
 
-#Ukraine, #North_Macedonia, #Bulgaria, #Lithuania, #Latvia, #Estonia, #Greece, #Cyprus, #Turkey, #Croatia, #Romania, #Serbia, #Finland, #Slovakia, #Luxembourg, #Norway, #Slovenia, #Czech_Republic, #Portugal, #Poland, #Spain, #Italy, #Hungary, #Switzerland, #France, #Germany, #The_Netherlands, #Belgium, #Sweden, #Ireland, #Bosnia_and_Herzegovina, #Iceland, #Moldova, #Malta, #Austria, #Belarus, #Albania, #Kosovo, #Montenegro, #Russia, #United_Kingdom, #Danish_Kingdom, #Yugoslavia1, #Yugoslavia2, #Yugoslavia3, #Yugoslavia4 {
+#Ukraine, #North_Macedonia, #Bulgaria, #Lithuania, #Latvia, #Estonia, #Greece, #Cyprus, #Turkey, #Croatia, #Romania, #Serbia, #Finland, #Slovakia, #Luxembourg, #Norway, #Slovenia, #Czech_Republic, #Portugal, #Poland, #Spain, #Italy, #Hungary, #Switzerland, #France, #Germany, #The_Netherlands, #Belgium, #Sweden, #Ireland, #Bosnia_and_Herzegovina, #Iceland, #Moldova, #Malta, #Austria, #Belarus, #Albania, #Kosovo, #Montenegro, #Russia, #United_Kingdom, #Danish_Kingdom, #Yugoslavia1, #Yugoslavia2, #Yugoslavia3, #Yugoslavia4, #Czechoslovakia, #USSR1, #USSR2 {
     cursor: pointer;
     -webkit-transition: 0.1s ease;
     transition: 0.1s ease;
 }
 
-#Ukraine:hover, #North_Macedonia:hover, #Bulgaria:hover, #Lithuania:hover, #Latvia:hover, #Estonia:hover, #Greece:hover, #Cyprus:hover, #Turkey:hover, #Croatia:hover, #Romania:hover, #Serbia:hover, #Finland:hover, #Slovakia:hover, #Luxembourg:hover, #Norway:hover, #Slovenia:hover, #Czech_Republic:hover, #Portugal:hover, #Poland:hover, #Spain:hover, #Italy:hover, #Hungary:hover, #Switzerland:hover, #France:hover, #Germany:hover, #The_Netherlands:hover, #Belgium:hover, #Sweden:hover, #Ireland:hover, #Bosnia_and_Herzegovina:hover, #Iceland:hover, #Moldova:hover, #Malta:hover, #Austria:hover, #Belarus:hover, #Albania:hover, #Kosovo:hover, #Montenegro:hover, #Russia:hover, #United_Kingdom:hover, #Danish_Kingdom:hover, #Yugoslavia1:hover, #Yugoslavia2:hover, #Yugoslavia3:hover, #Yugoslavia4:hover {
+#Ukraine:hover, #North_Macedonia:hover, #Bulgaria:hover, #Lithuania:hover, #Latvia:hover, #Estonia:hover, #Greece:hover, #Cyprus:hover, #Turkey:hover, #Croatia:hover, #Romania:hover, #Serbia:hover, #Finland:hover, #Slovakia:hover, #Luxembourg:hover, #Norway:hover, #Slovenia:hover, #Czech_Republic:hover, #Portugal:hover, #Poland:hover, #Spain:hover, #Italy:hover, #Hungary:hover, #Switzerland:hover, #France:hover, #Germany:hover, #The_Netherlands:hover, #Belgium:hover, #Sweden:hover, #Ireland:hover, #Bosnia_and_Herzegovina:hover, #Iceland:hover, #Moldova:hover, #Malta:hover, #Austria:hover, #Belarus:hover, #Albania:hover, #Kosovo:hover, #Montenegro:hover, #Russia:hover, #United_Kingdom:hover, #Danish_Kingdom:hover, #Yugoslavia1:hover, #Yugoslavia2:hover, #Yugoslavia3:hover, #Yugoslavia4:hover, #Czechoslovakia:hover, #USSR1:hover, #USSR2:hover {
     fill: #606060/*rgb(0, 77, 152)*/;
 }
-
-/*Russia
-United_Kingdom
-Danish_Kingdom*/
-
-/*#Russia:hover ~ #ru-kgd-6/*, #ru-kgd-6*/ {
-    fill: #ff0000;
-}*/
 
 #colorRangeDesc0 {
     position: absolute;

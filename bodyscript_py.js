@@ -1276,6 +1276,14 @@ document.getElementById("timeline").oninput = function() {
 	if (typeof selectedCountry != 'undefined' && selectedCountry != "") {
 		countryClick(selectedCountry)
 	}
+	if (this.value/1000 < 0.41845317468458304) {
+		document.getElementById("Lithuania").style.display = "none";
+		document.getElementById("USSR2").style.display = "none";
+	}
+	else {
+		document.getElementById("Lithuania").style.display = "block";
+		document.getElementById("USSR2").style.display = "block";
+	}
 	if (this.value/1000 < 0.44312237152528466) {
 		document.getElementById("Slovenia").style.display = "none";
 		document.getElementById("Croatia").style.display = "none";
@@ -1285,6 +1293,22 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Slovenia").style.display = "block";
 		document.getElementById("Croatia").style.display = "block";
 		document.getElementById("Yugoslavia2").style.display = "block";
+	}
+	if (this.value/1000 < 0.44619961021643245) {
+		document.getElementById("Moldova").style.display = "none";
+		document.getElementById("Ukraine").style.display = "none";
+		document.getElementById("Belarus").style.display = "none";
+		document.getElementById("Estonia").style.display = "none";
+		document.getElementById("Latvia").style.display = "none";
+		document.getElementById("Russia").style.display = "none";
+	}
+	else {
+		document.getElementById("Moldova").style.display = "block";
+		document.getElementById("Ukraine").style.display = "block";
+		document.getElementById("Belarus").style.display = "block";
+		document.getElementById("Estonia").style.display = "block";
+		document.getElementById("Latvia").style.display = "block";
+		document.getElementById("Russia").style.display = "block";
 	}
 	if (this.value/1000 < 0.4469689198892194) {
 		document.getElementById("North_Macedonia").style.display = "none";
@@ -1301,6 +1325,14 @@ document.getElementById("timeline").oninput = function() {
 	else {
 		document.getElementById("Bosnia_and_Herzegovina").style.display = "block";
 		document.getElementById("Yugoslavia4").style.display = "block";
+	}
+	if (this.value/1000 < 0.471638116729921) {
+		document.getElementById("Slovakia").style.display = "none";
+		document.getElementById("Czech_Republic").style.display = "none";
+	}
+	else {
+		document.getElementById("Slovakia").style.display = "block";
+		document.getElementById("Czech_Republic").style.display = "block";
 	}
 	if (this.value/1000 < 0.7223304954354293) {
 		document.getElementById("Montenegro").style.display = "none";

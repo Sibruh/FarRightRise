@@ -977,6 +977,6 @@ function countryClick(country) {
 		}
 	}
 	else {
-		document.getElementById("textbox").innerHTML = "<p>Unfortunately, there is not yet any data available for this country.</p>";
+		document.getElementById("textbox").innerHTML = "<p>Unfortunately, there is no data available for this country at this time.</p>";
 	}
 }

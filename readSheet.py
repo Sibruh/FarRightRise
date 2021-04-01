@@ -255,9 +255,12 @@ democratisationDates = {
 # Define independence date for country (country will be transparent before democratisation date)
 # Undefined countries will be assumed to have not independence date
 independenceDates = {
+                        '1-3-1990': ['Lithuania', 'USSR2'],
                         '25-6-1991': ['Slovenia', 'Croatia', 'Yugoslavia2'],
+                        '24-8-1991': ['Moldova', 'Ukraine', 'Belarus', 'Estonia', 'Latvia', 'Russia'], # allemaal samengevoegd omdat deze data allemaal ongeveer binnen een week van elkaar liggen
                         '8-9-1991': ['North_Macedonia', 'Yugoslavia3'],
                         '1-3-1992': ['Bosnia_and_Herzegovina', 'Yugoslavia4'],
+                        '1-1-1993': ['Slovakia', 'Czech_Republic'],
                         '21-5-2006': ['Montenegro', 'Serbia'],
                         '17-2-2008': ['Kosovo'],
                         }
@@ -415,7 +418,7 @@ else:
         content += ("\t}\n")
     content += ("\telse {\n")
     content += ("\t\t" + "document.getElementById(\"textbox\").innerHTML = \"")
-    content += "<p>Unfortunately, there is not yet any data available for this country.</p>"
+    content += "<p>Unfortunately, there is no data available for this country at this time.</p>"
     content += ("\";\n\t}\n")
     content += ("}\n")
 
