@@ -256,6 +256,7 @@ democratisationDates = {
 # Undefined countries will be assumed to have not independence date
 independenceDates = {
                         '1-3-1990': ['Lithuania', 'USSR2'],
+                        '3-10-1990': ['Germany'],
                         '25-6-1991': ['Slovenia', 'Croatia', 'Yugoslavia2'],
                         '24-8-1991': ['Moldova', 'Ukraine', 'Belarus', 'Estonia', 'Latvia', 'Russia'], # allemaal samengevoegd omdat deze data allemaal ongeveer binnen een week van elkaar liggen
                         '8-9-1991': ['North_Macedonia', 'Yugoslavia3'],
@@ -299,6 +300,9 @@ for subset in colormap:
             content += ("\t\tdocument.getElementById(\"" + Yugoslavia2 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
             content += ("\t\tdocument.getElementById(\"" + Yugoslavia3 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
             content += ("\t\tdocument.getElementById(\"" + Yugoslavia4 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+        elif subset[0] == "USSR":
+            content += ("\t\tdocument.getElementById(\"" + USSR1 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
+            content += ("\t\tdocument.getElementById(\"" + USSR2 + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
         else:
             content += ("\t\tdocument.getElementById(\"" + subset[0] + "\").setAttribute(\"fill\", interpolateColor(\"" + str(subset[1][i][1]) + "\", \"" + (str(subset[1][i+1][1]) if i < len(subset[1])-1 else str(subset[1][i][1])) + "\", " + (("((this.value/1000-(" + str(subset[1][i][0]) + "))/" + str(subset[1][i+1][0]-subset[1][i][0]) + ")") if i < len(subset[1])-1 else "0") + "));\n")
         # Uncomment to disable interpolation:

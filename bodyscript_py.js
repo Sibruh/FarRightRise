@@ -1284,6 +1284,12 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Lithuania").style.display = "block";
 		document.getElementById("USSR2").style.display = "block";
 	}
+	if (this.value/1000 < 0.42953123397271514) {
+		document.getElementById("Germany").style.display = "none";
+	}
+	else {
+		document.getElementById("Germany").style.display = "block";
+	}
 	if (this.value/1000 < 0.44312237152528466) {
 		document.getElementById("Slovenia").style.display = "none";
 		document.getElementById("Croatia").style.display = "none";
