@@ -600,6 +600,7 @@ for country in data_pre_plottable:
                         TODO:
  - domein van plots beperken tot dat van de tijdlijn
  - voor elk land een lijst van election years maken
+ - FUCK DIE PYTHON PLOTS - javascript bar plot template zoeken?
  - legenda koppelen aan partijentabel zodat daar de naam van de partij of de juiste afkortingkomt te staan
  X plot crop optimaliseren
  - nalopen of ranges van landen nog wel kloppen - bestaat land wel op elk tijdstip in de plot?
