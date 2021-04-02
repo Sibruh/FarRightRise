@@ -10,6 +10,7 @@ from PIL import Image
 import math
 import os
 import os.path as path
+import pandas as pd
 
 # Function, Converts notation like "GR1: 0,3% | GR2: 5,6%" to [("GR1",0.3), ("GR2", 5.6)]
 def parseElectionResult(string):
@@ -302,6 +303,12 @@ for date in independenceDates.keys():
     for y in x[1]:
         print(y)'''
 
+# Define iron curtain fall range
+ironCurtainFallStartDate = '1-1-1983'
+ironCurtainFallEndDate = '1-1-1993'
+ironCurtainFallStart = ((datetime.datetime.strptime(ironCurtainFallStartDate, "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays
+ironCurtainFallEnd = ((datetime.datetime.strptime(ironCurtainFallEndDate, "%d-%m-%Y") - dateRangeMin).days)/dateRangeDays
+
 # TODO: garanderen dat er altijd minstens 1 keyframe is per land. anders resulteert dit in crash
 # TODO: uitzondering maken voor landen die uit vectorgroep bestaan: Rusland, UK, DK.
 undefinedToDefinedTransitionLength = 0.1
@@ -309,6 +316,16 @@ content = ("document.getElementById(\"timeline\").oninput = function() {\n")
 content += ("\tvar startDate = new Date(" + dateRangeMin.strftime("%Y, %m, %d") + ");\n")
 content += ("\tvar endDate = new Date(" + dateRangeMax.strftime("%Y, %m, %d") + ");\n")
 content += ("\tdocument.getElementById(\"dateIndicator\").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));\n")
+content += ("\tif (this.value/1000 >= " + str(ironCurtainFallEnd) + ") {\n")
+#content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"stroke-dashoffset\", 1000);\n")
+content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"opacity\", 0);\n")
+content += ("\t} else if (this.value/1000 < " + str(ironCurtainFallStart) + ") {\n")
+#content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"stroke-dashoffset\", 825);\n")
+content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"opacity\", 1);\n")
+content += ("\t} else {\n")
+#content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"stroke-dashoffset\", jQuery.easing[\"easeColor\"](0,this.value/1000-(" + str(ironCurtainFallStart) + "),825,175," + str(ironCurtainFallEnd-ironCurtainFallStart) + "));\n")
+content += ("\t\tdocument.getElementById(\"ironCurtain\").setAttribute(\"opacity\", jQuery.easing[\"easeColor\"](0,this.value/1000-(" + str(ironCurtainFallStart) + "),1,-1," + str(ironCurtainFallEnd-ironCurtainFallStart) + "));\n")
+content += ("\t}\n")
 for subset in colormap:
     for i in range(0, len(subset[1])):
         content += ("\t" + ("" if i == 0 else "else ") + "if (this.value/1000 >= " + str(subset[1][i][0]) + ((" && this.value/1000 < " + str(subset[1][i+1][0])) if i < len(subset[1])-1 else "") + ") {\n")
@@ -406,7 +423,7 @@ else:
         countryPath = countryDir + country + ".htm"
         if not (path.exists(countryPath) and path.isfile(countryPath)):
             f = open(countryPath, "w")
-            f.write("<h1>" + country + "</h1>\n<p>Lorem ipsum et cetera " + country + "</p>\n")
+            f.write("<h1>" + country.replace("_", " ") + "</h1>\n<p>Lorem ipsum et cetera " + country.replace("_", " ") + "</p>\n")
             f.close()
     for party in partiesList:
         partyPath = partyDir + party + ".htm"
@@ -477,3 +494,117 @@ else:
 f = open("headscript_py.js", "w")
 f.write(content)
 f.close()
+
+# Define election years for countries that will be plotted
+democratisationDates = {
+                        #'Austria': [1970,1980,1986,1990,1994,1995,1999,2002,2006,2008,2013,2017,2019],
+                        #'Belgium': [1981,1985,1987,1991,1995,1999,2003,2007,2010,2014,2019],
+                        #'BRD': [1949,1953,1957,1965,1972,1976,1980,1983,1987],
+                        #'Bulgaria': [2005,2009,2013,2014,2017],
+                        #'Croatia': [1992,1995,2000,2003,2007,2009,2014,2020],
+                        #'Cyprus': [2011,2013,2016,2018,2019],
+                        #'Czech_Republic': [2013,2017],
+                        #'Danish_Kingdom': [1998,2001,2005,2007,2011,2015,2019],
+                        #'Estonia': [2015,2019],
+                        #'Finland': [1999,2003,2007,2011,2015,2019],
+                        #'France': [1973,1978,1981,1986,1988,1995,2002,2007,2012,2017],
+                        #'Germany': [1949,1953,1957,1965,1969,1972,1976,1980,1983,1987,1990,1998,2002,2005,2009,2013,2017], # KLOPT DIT WEL?
+                        #'Greece': [1996,2004,2007,2009,2012,2012(2),2015,2015(2),2019],
+                        #'Hungary': [1990,1994,1998,2002,2006,2010,2014,2018],
+                        #'Italy': [1992,1994,1996,2001,2006,2008,2013,2018],
+                        #'Latvia': [2010,2011,2014,2018],
+                        #'Lithuania': [2002,2004,2008,2012,2016],
+                        #'Luxembourg': [1989,1994,1999,2004,2009,2013,2018],
+                        #'Moldova': [2005,2014,2019],
+                        #'Montenegro': [1992,1996,1998,2001,2002,2006,2009,2012,2016],
+                        #'North_Macedonia': [1990,1994,1998,2002,2006,2008,2011,2014,2016,2020],
+                        #'Norway': [1973,1977,1981,1985,1989,1993,1997,2001,2005,2009,2013,2017],
+                        #'Poland': [2001,2005,2007,2011,2015,2019],
+                        #'Portugal': [2019,2021],
+                        #'Romania': [1992,1996,2000,2004,2008,2012,2016,2020],
+                        #'Russia': [1993,1995,1999,2003,2007,2011,2016],
+                        #'Serbia': [1992,1997,2000,2003,2007,2008,2012,2014,2016,2020],
+                        #'Slovakia': [1990,1992,1994,1998,2002,2006,2010,2012,2016,2020],
+                        #'Slovenia': [1990,1992,1996,2000,2004,2008,2011,2014,2018],
+                        #'Spain': [1977,2015,2016,2019,2019(2)],
+                        #'Sweden': [1991,1994,1998,2002,2006,2010,2014,2018],
+                        #'Switzerland': [1967,1971,1975,1979,1983,1987,1991,1995,1999,2003,2007,2011,2015,2019],
+                        #'The_Netherlands': [1986,1989,1994,1998,2002,2003,2006,2010,2012,2017,2021],
+                        #'Turkey': [1969,1973,1977,1995,1999,2002,2007,2011,2015,2015(2),2018],
+                        #'Ukraine': [1994,1998,2006,2007,2012,2014,2019],
+                        #'United_Kingdom': [1992,1997,2001,2005,2010,2015,2017,2019],
+                        #'Yugoslavia': [1992,1997,2000,2003,2007]
+                        }
+
+# Prepare data for generating stacked bar plots
+data_pre_plottable = list(map(lambda x: (x[0], list(map(lambda y: (y[1].year, y[2]), x[1]))), data_colored))
+partiesPerCountry = dict()
+for country in data_pre_plottable:
+    differentParties = []
+    for election in country[1]:
+        for partyTuple in election[1]:
+            if not partyTuple[0] in differentParties:
+                differentParties.append(partyTuple[0])
+    differentParties.sort()
+    partiesPerCountry.update({country[0] : differentParties})
+
+for country in data_pre_plottable:
+    for election in country[1]:
+        availableParties = list(map(lambda x: x[0], election[1]))
+        for party in partiesPerCountry.get(country[0]):
+            if not party in availableParties:
+                election[1].append((party, 0, 0))
+        election[1].sort(key=lambda x: x[0])
+
+data_plottable = dict()
+for country in data_pre_plottable:
+    dataset = [list(map(lambda x: x[0], country[1]))]
+    for i in range(0, len(partiesPerCountry.get(country[0]))):
+        dataset.append(list(map(lambda x: x[1][i][2], country[1])))
+    data_plottable.update({country[0] : dataset})
+
+'''for x in data_pre_plottable:
+    print(x[0])
+    for y in x[1]:
+        print(y)'''
+
+'''for key in data_plottable.keys():
+    dataset = data_plottable.get(key)
+    if dataset[0]:
+        print(key)
+        for y in dataset:
+            print(y)'''
+
+# Generate stacked bar plot as test:
+for country in data_plottable.keys():
+    dataset = data_plottable.get(country)
+    if dataset[0]:
+        dataframe = dict()
+        yearList = dataset[0]
+        for i in range(1, len(dataset)):
+            dataframe.update({partiesPerCountry.get(country)[i-1] : dataset[i]})
+        plotdata = pd.DataFrame(dataframe, index=yearList)
+        plt.close()
+        with plt.rc_context({'axes.edgecolor':(1,1,1,0), 'figure.facecolor':'white'}):
+            plotdata.plot(kind='bar', stacked=True, width=1)
+            #plt.xlabel("Election year")
+            plt.grid(True, color='#000000', alpha=0.1, axis="y", linestyle='--')
+            plt.ylabel("% of votes", loc='top')
+            plt.legend(partiesPerCountry.get(country), frameon=False)
+            #plt.axis('off')
+            crop = [-0.5,-0.55,-0.1,-0.1]
+            plt.savefig("stackedBarPlots//" + country.replace(" ", "_") + ".svg", transparent=True)#, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
+            plt.savefig("stackedBarPlots//png_preview//" + country.replace(" ", "_") + ".png", transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
+
+"""======================================================
+                        TODO:
+ - domein van plots beperken tot dat van de tijdlijn
+ - voor elk land een lijst van election years maken
+ - legenda koppelen aan partijentabel zodat daar de naam van de partij of de juiste afkortingkomt te staan
+ X plot crop optimaliseren
+ - nalopen of ranges van landen nog wel kloppen - bestaat land wel op elk tijdstip in de plot?
+ - nalopen of bestaande election dates wel kloppen (de witte keyframes dus negeren)
+ - tijd constant maken?
+ - passend kleurenpalet instellen
+ - onderzoeken of font aan te passen is
+======================================================"""

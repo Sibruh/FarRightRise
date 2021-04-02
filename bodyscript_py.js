@@ -2,6 +2,13 @@ document.getElementById("timeline").oninput = function() {
 	var startDate = new Date(1967, 10, 29);
 	var endDate = new Date(2021, 03, 17);
 	document.getElementById("dateIndicator").innerHTML = getPaddedDate(startDate*(1-this.value/1000) + endDate*(this.value/1000));
+	if (this.value/1000 >= 0.471638116729921) {
+		document.getElementById("ironCurtain").setAttribute("opacity", 0);
+	} else if (this.value/1000 < 0.28428556775053854) {
+		document.getElementById("ironCurtain").setAttribute("opacity", 1);
+	} else {
+		document.getElementById("ironCurtain").setAttribute("opacity", jQuery.easing["easeColor"](0,this.value/1000-(0.28428556775053854),1,-1,0.18735254897938247));
+	}
 	if (this.value/1000 >= 0.4947174069135296 && this.value/1000 < 0.5697507436660171) {
 		document.getElementById("Ukraine").setAttribute("fill", interpolateColor("#f5ebdb", "#f5ebdb", ((this.value/1000-(0.4947174069135296))/0.07503333675248747)));
 	}
@@ -1261,11 +1268,17 @@ document.getElementById("timeline").oninput = function() {
 		document.getElementById("Yugoslavia3").setAttribute("fill", interpolateColor("#fe8858", "#fed26a", ((this.value/1000-(0.6210380551851472))/0.056416042671043165)));
 		document.getElementById("Yugoslavia4").setAttribute("fill", interpolateColor("#fe8858", "#fed26a", ((this.value/1000-(0.6210380551851472))/0.056416042671043165)));
 	}
-	else if (this.value/1000 >= 0.6774540978561904) {
-		document.getElementById("Yugoslavia1").setAttribute("fill", interpolateColor("#fed26a", "#fed26a", 0));
-		document.getElementById("Yugoslavia2").setAttribute("fill", interpolateColor("#fed26a", "#fed26a", 0));
-		document.getElementById("Yugoslavia3").setAttribute("fill", interpolateColor("#fed26a", "#fed26a", 0));
-		document.getElementById("Yugoslavia4").setAttribute("fill", interpolateColor("#fed26a", "#fed26a", 0));
+	else if (this.value/1000 >= 0.6774540978561904 && this.value/1000 < 0.7348958867576162) {
+		document.getElementById("Yugoslavia1").setAttribute("fill", interpolateColor("#fed26a", "#fe8958", ((this.value/1000-(0.6774540978561904))/0.057441788901425817)));
+		document.getElementById("Yugoslavia2").setAttribute("fill", interpolateColor("#fed26a", "#fe8958", ((this.value/1000-(0.6774540978561904))/0.057441788901425817)));
+		document.getElementById("Yugoslavia3").setAttribute("fill", interpolateColor("#fed26a", "#fe8958", ((this.value/1000-(0.6774540978561904))/0.057441788901425817)));
+		document.getElementById("Yugoslavia4").setAttribute("fill", interpolateColor("#fed26a", "#fe8958", ((this.value/1000-(0.6774540978561904))/0.057441788901425817)));
+	}
+	else if (this.value/1000 >= 0.7348958867576162) {
+		document.getElementById("Yugoslavia1").setAttribute("fill", interpolateColor("#fe8958", "#fe8958", 0));
+		document.getElementById("Yugoslavia2").setAttribute("fill", interpolateColor("#fe8958", "#fe8958", 0));
+		document.getElementById("Yugoslavia3").setAttribute("fill", interpolateColor("#fe8958", "#fe8958", 0));
+		document.getElementById("Yugoslavia4").setAttribute("fill", interpolateColor("#fe8958", "#fe8958", 0));
 	}
 	else {
 		if (this.value/1000 >= 0.4239204020925223) {
