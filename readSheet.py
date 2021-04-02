@@ -159,7 +159,7 @@ for key in keyframeMatrix.keys():
         plotYvals[i] += currentKeyVal[i]
 
 # Normalize plot y values, but leave space at the bottom for the timeline
-roomBottom = 0.05
+roomBottom = 0.02
 minimumPlotYval = min(plotYvals)
 plotYvals_normalized = list(map(lambda x: x-minimumPlotYval*(1-roomBottom), plotYvals))
 
@@ -576,7 +576,7 @@ for country in data_pre_plottable:
             print(y)'''
 
 # Generate stacked bar plot as test:
-for country in data_plottable.keys():
+'''for country in data_plottable.keys():
     dataset = data_plottable.get(country)
     if dataset[0]:
         dataframe = dict()
@@ -594,7 +594,7 @@ for country in data_plottable.keys():
             #plt.axis('off')
             crop = [-0.5,-0.55,-0.1,-0.1]
             plt.savefig("stackedBarPlots//" + country.replace(" ", "_") + ".svg", transparent=True)#, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
-            plt.savefig("stackedBarPlots//png_preview//" + country.replace(" ", "_") + ".png", transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))
+            plt.savefig("stackedBarPlots//png_preview//" + country.replace(" ", "_") + ".png", transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.8+crop[0], 0.528+crop[1], 5.76-crop[2], 4.224-crop[3]))'''
 
 """======================================================
                         TODO:
