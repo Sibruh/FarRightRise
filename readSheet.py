@@ -604,6 +604,7 @@ for country in data_pre_plottable:
     ^^ alhoewel: die US site gebruikt ook svg plots 0 misschien gewoon pyplot mooier maken
  - legenda koppelen aan partijentabel zodat daar de naam van de partij of de juiste afkortingkomt te staan
  X plot crop optimaliseren
+ - landen als andorra, liechtenstein en monaco hebben nog een glitch
  - nalopen of ranges van landen nog wel kloppen - bestaat land wel op elk tijdstip in de plot?
  - nalopen of bestaande election dates wel kloppen (de witte keyframes dus negeren)
  - tijd constant maken?
