@@ -70,6 +70,121 @@ function interpolateColor(hex1, hex2, pos) {
 										jQuery.easing["easeColor"](0,pos,col1[2],col2[2]-col1[2],1));
 }
 
+var currentScale = 1;
+
+function zoom(isIn) {
+    if (isIn) {
+        if (currentScale > 2.92) {
+            currentScale = 5;
+        } else {
+            currentScale = currentScale*1.71;
+        }
+    } else {
+        if (currentScale < 1.71) {
+            currentScale = 1;
+        } else {
+            currentScale = currentScale/1.71;
+        }
+    }
+    //document.getElementById("matrixMask").transform.baseVal.getItem(1).setScale(currentScale, currentScale);
+    //firstTransform = document.getElementById("matrixMask").transform.baseVal.getItem(0);
+    //firstTransformString = "matrix("+firstTransformString['a']+firstTransformString['b']+firstTransformString['c']+firstTransformString['d']+firstTransformString['e']+firstTransformString['f']")";"
+    //$("#matrixMask").animate({'transform': "scale("+currentScale+")"}, 1000);
+    $('#scaleGroup').css('transform',"scale("+currentScale+")");
+}
+
+function getMousePosition(evt) {
+    var CTM = svg.getScreenCTM();
+    return {
+        x: (evt.clientX - CTM.e) / CTM.a,
+        y: (evt.clientY - CTM.f) / CTM.d
+    };
+}
+
+function makeDraggable(evt) {
+    var svg = evt.target;
+
+    svg.addEventListener('mousedown', startDrag);
+    svg.addEventListener('mousemove', drag);
+    svg.addEventListener('mouseup', endDrag);
+    svg.addEventListener('mouseleave', endDrag);
+    svg.addEventListener('touchstart', startDrag);
+    svg.addEventListener('touchmove', drag);
+    svg.addEventListener('touchend', endDrag);
+    svg.addEventListener('touchleave', endDrag);
+    svg.addEventListener('touchcancel', endDrag);
+
+    function getMousePosition(evt) {
+        var CTM = svg.getScreenCTM();
+        if (evt.touches) { evt = evt.touches[0]; }
+        return {
+            x: (evt.clientX - CTM.e) / CTM.a,
+            y: (evt.clientY - CTM.f) / CTM.d
+        };
+    }
+
+    var selectedElement, offset, transform;
+    var boundaryX1 = -400;
+    var boundaryY1 = -310;
+    var boundaryX2 = 890;
+    var boundaryY2 = 990;
+
+    function initialiseDragging(evt) {
+        offset = getMousePosition(evt);
+        // Make sure the first transform on the element is a translate transform
+        var transforms = selectedElement.transform.baseVal;
+
+        if (transforms.length === 0 || transforms.getItem(0).type !== SVGTransform.SVG_TRANSFORM_TRANSLATE) {
+            // Create an transform that translates by (0, 0)
+            var translate = svg.createSVGTransform();
+            translate.setTranslate(0, 0);
+            selectedElement.transform.baseVal.insertItemBefore(translate, 0);
+        }
+
+        // Get initial translation
+        transform = transforms.getItem(0);
+        offset.x -= transform.matrix.e;
+        offset.y -= transform.matrix.f;
+    }
+
+    function startDrag(evt) {
+        selectedElement = evt.target.parentNode;
+        initialiseDragging(evt);
+        bbox = selectedElement.getBBox();
+        if (Math.round(currentScale) == 1) {
+            borderScaleCompensation = 0;
+        } else if (Math.round(currentScale) == 2) {
+            borderScaleCompensation = 0.2;
+        } else if (Math.round(currentScale) == 3) {
+            borderScaleCompensation = 0.3;
+        } else {
+            borderScaleCompensation = 0.4;
+        }
+        minX = boundaryX1-645*borderScaleCompensation - bbox.x;
+        minY = boundaryY1-650*borderScaleCompensation - bbox.y;
+        maxX = boundaryX2+645*borderScaleCompensation - bbox.x - bbox.width;
+        maxY = boundaryY2+650*borderScaleCompensation - bbox.y - bbox.height;
+    }
+
+    function drag(evt) {
+        if (selectedElement) {
+            evt.preventDefault();
+            var coord = getMousePosition(evt);
+            var dx = coord.x - offset.x;
+            var dy = coord.y - offset.y;
+            if (dx < minX) { dx = minX; }
+            else if (dx > maxX) { dx = maxX; }
+            if (dy < minY) { dy = minY; }
+            else if (dy > maxY) { dy = maxY; }
+            transform.setTranslate(dx, dy);
+        }
+    }
+
+    function endDrag(evt) {
+        selectedElement = false;
+    }
+  }
+
 /*function curtainFall(b) {
 		if (b) {
 				$("#ironCurtain").animate({'stroke-dashoffset': 1000}, 3000, "easeInOutSine");

@@ -1,3 +1,63 @@
+@font-face {
+  font-family: "Roboto1";
+  src: url("fonts/Roboto-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto1i";
+  src: url("fonts/Roboto-ThinItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto2";
+  src: url("fonts/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto2i";
+  src: url("fonts/Roboto-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto3";
+  src: url("fonts/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto3i";
+  src: url("fonts/Roboto-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto4";
+  src: url("fonts/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto4i";
+  src: url("fonts/Roboto-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto5";
+  src: url("fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto5i";
+  src: url("fonts/Roboto-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto6";
+  src: url("fonts/Roboto-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto6i";
+  src: url("fonts/Roboto-BlackItalic.ttf") format("truetype");
+}
+
 @keyframes slide
 {
     0% { content: 0; }
@@ -6,6 +66,7 @@
 
 body {
     opacity: 0;
+    font-family: Roboto2;
 }
 
 #colorRange {
@@ -17,17 +78,17 @@ body {
 
 h1 {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Roboto4;
 }
 
 h2 {
-    font-family: Arial, sans-serif;
     color: #843c2e;
+    font-family: Roboto3;
 }
 
 h3 {
-    font-family: Arial, sans-serif;
     color: #fe9a60;
+    font-family: Roboto2;
 }
 
 .row {
@@ -67,16 +128,43 @@ h3 {
     z-index: 1000;
 }
 
-footer {
+/*footer {
     margin: 28px 20px 20px 20px;
-}
+}*/
 
-.mapContainer {
+/*footer {
+  overflow: hidden;
+  width: 90%;
+  height: 150px;
+  margin: 28px 20px 20px 20px;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}*/
+
+/*.mapContainer {
     position: relative;
     text-align: center;
     color: #606060;
-    font-family: Arial, sans-serif;
     font-size: 16pt;
+}*/
+
+.mapContainer {
+    overflow: hidden;
+    margin-left: auto;
+    width: min(calc(95vh - 150px), 96vw);
+    margin-right: auto;
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(0);
+    -moz-transform: translateX(-50%) translateY(0);
+    -webkit-transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
 }
 
 #dateIndicator {
@@ -84,9 +172,12 @@ footer {
     top: 4px;
     left: 4px;
     z-index: 100;
+    color: #606060;
+    font-family: Roboto4;
+    font-size: 24px;
 }
 
-#timeline {
+/*#timeline {
     animation-name: slide;
     animation-duration: 2s;
     animation-iteration-count: 1;
@@ -98,8 +189,105 @@ footer {
     border-radius: 0px;
     outline: none;
     background-image: url(timelinePlot.svg);
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: calc(100% - 36px) 100%;
+}*/
+
+#scaleGroup {
+    /*-moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;*/
+    transform-origin: 50% 50%;
+}
+
+/*#matrixMask {
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}*/
+
+.button1, .button2 {
+    cursor: pointer;
+}
+
+.button1_inner {
+    fill: #ffffff;
+    transform: translate(546px, 16px);
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.button1_outer {
+    fill: #606060;
+    transform: translate(546px, 16px);
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.button1:hover > .button1_outer {
+    fill: #ffffff;
+    stroke: #606060;
+}
+
+.button1:hover > .button1_inner {
+    fill: #606060;
+}
+
+.button2_inner {
+    fill: #ffffff;
+    transform: translate(546px, 54px);
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.button2_outer {
+    fill: #606060;
+    transform: translate(546px, 54px);
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.button2:hover > .button2_outer {
+    fill: #ffffff;
+    stroke: #606060;
+}
+
+.button2:hover > .button2_inner {
+    fill: #606060;
+}
+
+#timeline {
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(0);
+    -moz-transform: translateX(-50%) translateY(0);
+    -webkit-transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
+
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 1s;
+    margin: -140px 0 0 0;
+    -webkit-appearance: none;
+    width: 96%;
+    height: 150px;
+    border-radius: 0px;
+    outline: none;
+    background-image: url(timelinePlot.svg);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: calc(100% - 36px) 100%;
 }
 
@@ -133,4 +321,51 @@ footer {
 
 #timeline::-moz-range-thumb:hover {
     background: #843c2e;
+}
+
+/* vergroot bepaalde knoppen voor mobiele gebruikers */
+@media (pointer:none), (pointer:coarse) {
+    #dateIndicator {
+        top: 0px;
+        left: 0px;
+        font-size: 54px;
+    }
+
+    #timeline {
+        width: 96%;
+        height: 300px;
+        border-radius: 0px;
+        outline: none;
+        background-image: url(timelinePlot.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: calc(100% - 116px) 100%;
+    }
+
+    #timeline::-webkit-slider-thumb {
+        margin: 290px 0 0 0;
+        width: 120px;
+        height: 120px;
+    }
+
+    #timeline::-moz-range-thumb {
+        margin: 290px 0 0 0;
+        width: 120px;
+        height: 120px;
+    }
+    .button1_inner {
+        transform: translate(500px, 16px) scale(2.5);
+    }
+
+    .button1_outer {
+        transform: translate(500px, 16px) scale(2.5);
+    }
+
+    .button2_inner {
+        transform: translate(500px, 100px) scale(2.5);
+    }
+
+    .button2_outer {
+        transform: translate(500px, 100px) scale(2.5);
+    }
 }
