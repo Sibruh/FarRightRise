@@ -70,6 +70,13 @@ function interpolateColor(hex1, hex2, pos) {
 										jQuery.easing["easeColor"](0,pos,col1[2],col2[2]-col1[2],1));
 }
 
+var boundaryX1 = -400;
+var boundaryY1 = -310;
+var boundaryX2 = 890;
+var boundaryY2 = 990;
+var anchorX = (boundaryX1+boundaryX2)/2;
+var anchorY = (boundaryY1+boundaryY2)/2;
+
 var currentScale = 1;
 
 function zoom(isIn) {
@@ -86,11 +93,14 @@ function zoom(isIn) {
             currentScale = currentScale/1.71;
         }
     }
-    //document.getElementById("matrixMask").transform.baseVal.getItem(1).setScale(currentScale, currentScale);
+    currentE = document.getElementById("matrixMask").transform.baseVal.getItem(0).matrix.e;
+    currentF = document.getElementById("matrixMask").transform.baseVal.getItem(0).matrix.f;
+    document.getElementById("matrixMask").transform.baseVal.getItem(1).setScale(currentScale, currentScale);
+    //document.getElementById("matrixMask").transform.baseVal.getItem(0).setTranslate(currentE, currentF);
     //firstTransform = document.getElementById("matrixMask").transform.baseVal.getItem(0);
     //firstTransformString = "matrix("+firstTransformString['a']+firstTransformString['b']+firstTransformString['c']+firstTransformString['d']+firstTransformString['e']+firstTransformString['f']")";"
     //$("#matrixMask").animate({'transform': "scale("+currentScale+")"}, 1000);
-    $('#scaleGroup').css('transform',"scale("+currentScale+")");
+    //$('#scaleGroup').css('transform',"scale("+currentScale+")");
 }
 
 function getMousePosition(evt) {
@@ -124,10 +134,6 @@ function makeDraggable(evt) {
     }
 
     var selectedElement, offset, transform;
-    var boundaryX1 = -400;
-    var boundaryY1 = -310;
-    var boundaryX2 = 890;
-    var boundaryY2 = 990;
 
     function initialiseDragging(evt) {
         offset = getMousePosition(evt);
@@ -147,31 +153,50 @@ function makeDraggable(evt) {
         offset.y -= transform.matrix.f;
     }
 
-    function startDrag(evt) {
-        selectedElement = evt.target.parentNode;
-        initialiseDragging(evt);
-        bbox = selectedElement.getBBox();
-        if (Math.round(currentScale) == 1) {
-            borderScaleCompensation = 0;
-        } else if (Math.round(currentScale) == 2) {
-            borderScaleCompensation = 0.2;
-        } else if (Math.round(currentScale) == 3) {
-            borderScaleCompensation = 0.3;
-        } else {
-            borderScaleCompensation = 0.4;
+    function searchHierarchy(target, trueClass, falseClass) {
+        tempval = target;
+        while (tempval.parentElement != null) {
+            if (tempval.classList.contains(falseClass)) {
+                return false;
+            } else if (tempval.classList.contains(trueClass)) {
+                return true;
+            }
+            tempval = tempval.parentElement;
         }
-        minX = boundaryX1-645*borderScaleCompensation - bbox.x;
-        minY = boundaryY1-650*borderScaleCompensation - bbox.y;
-        maxX = boundaryX2+645*borderScaleCompensation - bbox.x - bbox.width;
-        maxY = boundaryY2+650*borderScaleCompensation - bbox.y - bbox.height;
+        return false;
+    }
+
+    function startDrag(evt) {
+        if (searchHierarchy(evt.target, "draggable", "not_draggable")) {
+            selectedElement = evt.target.parentNode;
+            initialiseDragging(evt);
+            bbox = selectedElement.getBBox();
+            borderScaleCompensation = 1;
+            /*if (Math.round(currentScale) == 1) {
+                borderScaleCompensation = 0;
+            } else if (Math.round(currentScale) == 2) {
+                borderScaleCompensation = 0.2;
+            } else if (Math.round(currentScale) == 3) {
+                borderScaleCompensation = 0.3;
+            } else {
+                borderScaleCompensation = 0.4;
+            }*/
+            minX = boundaryX1-645*borderScaleCompensation - bbox.x;
+            minY = boundaryY1-650*borderScaleCompensation - bbox.y;
+            maxX = boundaryX2+645*borderScaleCompensation - bbox.x - bbox.width;
+            maxY = boundaryY2+650*borderScaleCompensation - bbox.y - bbox.height;
+        }
     }
 
     function drag(evt) {
         if (selectedElement) {
             evt.preventDefault();
             var coord = getMousePosition(evt);
-            var dx = coord.x - offset.x;
-            var dy = coord.y - offset.y;
+            var dx = (coord.x - offset.x);
+            var dy = (coord.y - offset.y);
+            console.log("coord: ", coord.x, coord.y);
+            console.log("offset: ", offset.x, offset.y);
+            console.log("d: ", dx, dy);
             if (dx < minX) { dx = minX; }
             else if (dx > maxX) { dx = maxX; }
             if (dy < minY) { dy = minY; }
